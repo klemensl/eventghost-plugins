@@ -87,9 +87,6 @@ class ServerThread(Thread):
     	self.server.serve_forever()
 
 
-
-
-
 class CCUEvent:
 
     def __init__(self, valueArray):
@@ -114,7 +111,7 @@ class HMXMLAPI(eg.PluginBase):
         print "Plugin init"
 
     def __start__(self, ccuProtocol, ccuHost, ccuPort, callbackPort):
-        print "Start Callback Server Thread"
+        #print "Start Callback Server Thread"
         self.serverThread = ServerThread(callbackPort, CCUCallbackHandler)
         self.serverThread.start()
 

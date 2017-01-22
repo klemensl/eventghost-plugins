@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import eg
 import xml.etree.ElementTree as ET
 import httplib
@@ -9,6 +11,7 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 
 
 class CCUCallbackHandler(BaseHTTPRequestHandler):
+
     #Handler for the GET requests
     def do_GET(self):
         self.send_response(200)
@@ -20,22 +23,30 @@ class CCUCallbackHandler(BaseHTTPRequestHandler):
 
     #Handler for the POST requests
     def do_POST(self):
+        jsonResponse = json.loads('{ "version": "1.0", "response": { "outputSpeech": { "type": "PlainText", "text": "PLACEHOLDER" }, "card": { "type": "Simple", "title": "PLACEHOLDER" }, "shouldEndSession": true } }')
+
         contentLength = int(self.headers.get('content-length'))
         content = self.rfile.read(contentLength)
 
         jsonContent = json.loads(content)
         intent = jsonContent["request"]["intent"]
         print "Intent: ", intent["name"]
-        if intent["name"] == "Licht_Schalten_Ein":
 
+        if intent["name"] == "Licht_Schalten":
             zimmer = intent["slots"]["Zimmer"]["value"]
-            if " " in zimmer:
-                zimmer = zimmer.split(" ")[0]
+            aktion = intent["slots"]["Aktion"]["value"]
 
-            print "Zimmer: ", zimmer
-            eg.TriggerEvent(intent["name"], zimmer, "Alexa")
+            #print zimmer, aktion
+            eventPayload = [zimmer, aktion]
+            eg.TriggerEvent(intent["name"], eventPayload, "Alexa")
 
-        response = '{ "version": "1.0", "response": { "outputSpeech": { "type": "PlainText", "text": "Die Temperatur im Schlafzimmer ist 22 Grad." }, "card": { "type": "Simple", "title": "Homematic A87", "content": "Die Temperatur im Schlafzimmer ist 22 Grad." }, "shouldEndSession": true } }'
+            #responseMessage = "Das Licht im {0} ist jetzt {1}.".format(zimmer, aktion)
+            responseMessage = "Klar doch!"
+            jsonResponse["response"]["outputSpeech"]["text"] = responseMessage
+            jsonResponse["response"]["card"]["title"] = responseMessage
+            response = json.dumps(jsonResponse)
+        else:
+            response = '{ "version": "1.0", "response": { "outputSpeech": { "type": "PlainText", "text": "Die Temperatur im Schlafzimmer ist 22 Grad." }, "card": { "type": "Simple", "title": "Homematic A87", "content": "Die Temperatur im Schlafzimmer ist 22 Grad." }, "shouldEndSession": true } }'
 
         self.send_response(200)
         self.send_header("Content-type", 'application/json; charset=UTF-8')
@@ -62,7 +73,6 @@ class ServerThread(Thread):
     	self.server.serve_forever()
 
 
-
 eg.RegisterPlugin(
     name = "Homematic-Alexa",
     author = "klemensl",
@@ -77,7 +87,7 @@ class HMXMLAPI(eg.PluginBase):
         print "Plugin init"
 
     def __start__(self, callbackPort):
-        print "Start Callback Server Thread"
+        #print "Start Callback Server Thread"
         self.serverThread = ServerThread(callbackPort, CCUCallbackHandler)
         self.serverThread.start()
 
