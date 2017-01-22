@@ -81,7 +81,7 @@ eg.RegisterPlugin(
     description = "..."
 )
 
-class HMXMLAPI(eg.PluginBase):
+class HMAlexaCallback(eg.PluginBase):
 
     def __init__(self):
         print "Plugin init"

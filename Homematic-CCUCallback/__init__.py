@@ -105,7 +105,7 @@ eg.RegisterPlugin(
     description = "..."
 )
 
-class HMXMLAPI(eg.PluginBase):
+class HMCCUCallback(eg.PluginBase):
 
     def __init__(self):
         print "Plugin init"
