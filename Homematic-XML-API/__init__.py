@@ -388,7 +388,6 @@ class setStateFromAlexaEvent(eg.ActionBase):
     description = ""
 
     def __init__(self):
-        #eventPayload = [deviceIDMapping[zimmer.lower()], valueMapping[aktion.lower()]]
         self.deviceIDMapping = {"esszimmer": "LEQ0883366:1", "kueche": "KEQ0926487:1", u"küche": "KEQ0926487:1", "stiege": "LEQ0236800:1", "gang": "LEQ0236800:2"}
         self.valueMapping = {"einschalten": "1", "ausschalten": "0", "turnonrequest": "1", "turnoffrequest": "0"}
 
@@ -397,15 +396,25 @@ class setStateFromAlexaEvent(eg.ActionBase):
             print "No payload set - skipping..."
             return False
 
-        device_id = eg.event.payload[0]
-        new_value = eg.event.payload[1]
+        aktion = eg.event.payload[0]
+        aktion_lower = aktion.lower()
+        device_id = eg.event.payload[1]
         device_id_lower = device_id.lower()
-        new_value_lower = new_value.lower()
 
         if device_id_lower in self.deviceIDMapping:
             device_id = self.deviceIDMapping[device_id_lower]
-        if new_value_lower in self.valueMapping:
-            new_value = self.valueMapping[new_value_lower]
 
-        print device_id, new_value
-        self.plugin.changeStateXMLRPC(device_id, new_value)
+        if aktion_lower in self.valueMapping:
+            new_value = aktion
+            new_value_lower = aktion_lower
+
+            if new_value_lower in self.valueMapping:
+                new_value = self.valueMapping[new_value_lower]
+
+            self.plugin.changeStateXMLRPC(device_id, new_value)
+        elif aktion_lower == "setpercentagerequest":
+            new_value = eg.event.payload[2]
+
+            self.plugin.setDataPointXMLRPC(device_id, "LEVEL", new_value)
+        else:
+            print "unknown..."

@@ -31,30 +31,46 @@ class CCUCallbackHandler(BaseHTTPRequestHandler):
 
         if jsonContent["header"] is not None: #Smarthome Skill
             print "Smarthome Skill..."
-            print content
+            #print content
 
             if jsonContent['header']['namespace'] == 'Alexa.ConnectedHome.Discovery':
                 #payload = { "discoveredAppliances":[ { "applianceId":"device001", "manufacturerName":"yourManufacturerName", "modelName":"model 01", "version":"your software version number here.", "friendlyName":"Smart Home Virtual Device", "friendlyDescription":"", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{ "extraDetail1":"optionalDetailForSkillAdapterToReferenceThisDevice", "extraDetail2":"There can be multiple entries", "extraDetail3":"but they should only be used for reference purposes.", "extraDetail4":"This is not a suitable place to maintain current device state" } } ] }
-                applianceKueche =  { "applianceId":"KEQ0926487:1", "manufacturerName":"Homematic", "modelName":"Aktor1", "version":"1.0", "friendlyName":"Kueche", "friendlyDescription":"Kueche", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{} }
-                applianceKuecheAmbient =  { "applianceId":"KEQ0926487:2", "manufacturerName":"Homematic", "modelName":"Aktor2", "version":"1.0", "friendlyName":"Kuecheambient", "friendlyDescription":"Kuecheambient", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{} }
-                applianceStiege =  { "applianceId":"LEQ0236800:1", "manufacturerName":"Homematic", "modelName":"Aktor3", "version":"1.0", "friendlyName":"Stiege", "friendlyDescription":"Stiege", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{} }
-                applianceGang =  { "applianceId":"LEQ0236800:2", "manufacturerName":"Homematic", "modelName":"Aktor4", "version":"1.0", "friendlyName":"Gang", "friendlyDescription":"Gang", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{} }
-                applianceEsszimmer =  { "applianceId":"LEQ0883366:1", "manufacturerName":"Homematic", "modelName":"Aktor5", "version":"1.0", "friendlyName":"Esszimmer", "friendlyDescription":"Esszimmer", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{} }
-                #appliance =  { "applianceId":"KEQ0926487:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Kueche", "friendlyDescription":"", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{} }
-                #appliance =  { "applianceId":"KEQ0926487:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Kueche", "friendlyDescription":"", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{} }
-                #appliance =  { "applianceId":"KEQ0926487:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Kueche", "friendlyDescription":"", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{} }
-                #appliance =  { "applianceId":"KEQ0926487:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Kueche", "friendlyDescription":"", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{} }
-                #appliance =  { "applianceId":"KEQ0926487:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Kueche", "friendlyDescription":"", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{} }
+                applianceKueche =  { "applianceId":"KEQ0926487:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Kueche", "friendlyDescription":"Kueche", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{"system":"homematic"} }
+                applianceKuecheAmbient =  { "applianceId":"KEQ0926487:2", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Kuecheambient", "friendlyDescription":"Kuecheambient", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{"system":"homematic"} }
+                applianceStiege =  { "applianceId":"LEQ0236800:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Stiege", "friendlyDescription":"Stiege", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{"system":"homematic"} }
+                applianceGang =  { "applianceId":"LEQ0236800:2", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Gang", "friendlyDescription":"Gang", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{"system":"homematic"} }
+                applianceEsszimmer =  { "applianceId":"LEQ0883366:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Esszimmer", "friendlyDescription":"Esszimmer", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{"system":"homematic"} }
+                applianceStehlampe =  { "applianceId":"MEQ0271709:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Stehlampe", "friendlyDescription":"Stehlampe", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{"system":"homematic"} }
+                applianceFernseher =  { "applianceId":"Fernseher", "manufacturerName":"Panasonic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Fernseher", "friendlyDescription":"Fernseher", "isReachable":True, "actions":[ "turnOff" ], "additionalApplianceDetails":{"system":"panaonic"} }
+                applianceAmbient =  { "applianceId":"OG-Ambient", "manufacturerName":"FS20", "modelName":"Aktor", "version":"1.0", "friendlyName":"Ambient", "friendlyDescription":"Ambient", "isReachable":True, "actions":[ "turnOn", "turnOff" ], "additionalApplianceDetails":{"system":"fs20"} }
+                applianceRolloKuche =  { "applianceId":"LEQ1032184:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Rollo Kueche", "friendlyDescription":"Rollo Kueche", "isReachable":True, "actions":[ "turnOn", "turnOff", "setPercentage" ], "additionalApplianceDetails":{"system":"homematic"} }
+                applianceRolloEsszimmer =  { "applianceId":"LEQ1029223:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Rollo Esszimmer", "friendlyDescription":"Rollo Esszimmer", "isReachable":True, "actions":[ "turnOn", "turnOff", "setPercentage" ], "additionalApplianceDetails":{"system":"homematic"} }
+                applianceRolloTerasse =  { "applianceId":"MEQ0733239:1", "manufacturerName":"Homematic", "modelName":"Aktor", "version":"1.0", "friendlyName":"Rollo Terasse", "friendlyDescription":"Rollo Terasse", "isReachable":True, "actions":[ "turnOn", "turnOff", "setPercentage" ], "additionalApplianceDetails":{"system":"homematic"} }
 
-                payload = { "discoveredAppliances":[applianceKueche, applianceKuecheAmbient, applianceStiege, applianceGang, applianceEsszimmer] }
+                payload = { "discoveredAppliances":[applianceKueche, applianceKuecheAmbient, applianceStiege, applianceGang, applianceEsszimmer,
+                    applianceStehlampe,
+                    applianceFernseher,
+                    applianceRolloKuche, applianceRolloEsszimmer, applianceRolloTerasse]
+                }
                 response = json.dumps(payload)
             elif jsonContent['header']['namespace'] == 'Alexa.ConnectedHome.Control':
                 device_id = jsonContent['payload']['appliance']['applianceId']
-                aktion = jsonContent['header']['name'] #== 'TurnOnRequest':
-                eventPayload = [device_id, aktion]
+                aktion = jsonContent['header']['name'] #== TurnOnRequest, SetPercentageRequest
+                print "Aktion:", aktion
+                #system = jsonContent['payload']['appliance']['additionalApplianceDetails']['system'] #== 'TurnOnRequest':
 
-                eg.TriggerEvent("Licht_Schalten", eventPayload, "Alexa")
-                #message_id = event['header']['messageId']
+                if aktion == 'TurnOnRequest' or aktion == 'TurnOffRequest':
+                    eventPayload = [aktion, device_id]
+                    eg.TriggerEvent("Triggered", eventPayload, "Alexa")
+                    eg.TriggerEvent("Triggered." + aktion + "." + device_id, None, "Alexa")
+                elif aktion == 'SetPercentageRequest':
+                    percentage = jsonContent['payload']['percentageState']['value']
+                    eventPayload = [aktion, device_id, percentage]
+                    eg.TriggerEvent("Triggered", eventPayload, "Alexa")
+                    eg.TriggerEvent("Triggered." + aktion + "." + device_id, [percentage], "Alexa")
+                else:
+                    print "unknown..."
+
                 payload = {}
                 response = json.dumps(payload)
         elif jsonContent["request"] is not None: #Custom Skill
