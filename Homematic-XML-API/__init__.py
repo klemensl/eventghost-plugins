@@ -7,9 +7,9 @@ import xml.etree.ElementTree as ET
 eg.RegisterPlugin(
     name = "Homematic",
     author = "klemensl",
-    version = "0.0.1",
+    version = "0.0.1a",
     kind = "other",
-    description = "..."
+    description = "...."
 )
 
 class HMXMLAPI(eg.PluginBase):
@@ -17,6 +17,7 @@ class HMXMLAPI(eg.PluginBase):
     HM_XMLAPI_STATE = "state.cgi?datapoint_id={0}"
     HM_XMLAPI_STATECHANGE = "statechange.cgi?ise_id={0}&new_value={1}"
     HM_XMLRPC_SETVALUE_BODY = "<methodCall><methodName>setValue</methodName><params><param><value><string>{0}</string></value></param><param><value><string>{1}</string></value></param><param><value><string>{2}</string></value></param></params></methodCall>"
+    HM_XMLRPC_PRESS_BODY =    "<methodCall><methodName>setValue</methodName><params><param><value><string>{0}</string></value></param><param><value><string>{1}</string></value></param><param><value><boolean>{2}</boolean></value></param></params></methodCall>"
     HM_XMLRPC_GETVALUE_BODY = "<methodCall><methodName>getValue</methodName><params><param><value><string>{0}</string></value></param><param><value><string>{1}</string></value></param></params></methodCall>"
     HM_XMLRPC_ONTIME_BODY = "<methodCall><methodName>setValue</methodName><params><param><value><string>{0}</string></value></param><param><value><string>ON_TIME</string></value></param><param><value><string>{1}</string></value></param></params></methodCall>"
     HM_XMLRPC_EVENT = "<methodCall><methodName>event</methodName><params><param><value><string>{0}</string></value></param><param><value><string>{1}</string></value></param><param><value><string>VALUE</string></value></param><param><value><i4>{2}</i4></value></param></params></methodCall>"
@@ -33,6 +34,7 @@ class HMXMLAPI(eg.PluginBase):
         self.AddAction(setValueXMLRPC)
         self.AddAction(getValueXMLRPC)
         self.AddAction(setDataPointXMLRPC)
+        self.AddAction(setDataPointXMLRPCLumi)
         self.AddAction(getDataPointXMLRPC)
         self.AddAction(turnOnOrOffXMLRPC)
         self.AddAction(turnOnOrOffForXXMLRPC)
@@ -90,11 +92,15 @@ class HMXMLAPI(eg.PluginBase):
     def changeStateXMLRPC(self, device_id, new_value):
         self.SendRequest("/", 2001, self.HM_XMLRPC_SETVALUE_BODY.format(device_id, "STATE", new_value), "POST")
         valueAfterChange = self.getDataPointXMLRPC(device_id, "STATE")
-        print "devide_id {0} changed to {1} (actual {2})".format(device_id, new_value, valueAfterChange)
+        print "device_id {0} datapoint STATE changed to {1} (actual {2})".format(device_id, new_value, valueAfterChange)
         return valueAfterChange
 
     def setDataPointXMLRPC(self, device_id, datapoint_name, new_value):
-        self.SendRequest("/", 2001, self.HM_XMLRPC_SETVALUE_BODY.format(device_id, datapoint_name, new_value), "POST")
+        if (datapoint_name == 'PRESS_SHORT') or (datapoint_name == 'PRESS_LONG'):
+            print self.HM_XMLRPC_PRESS_BODY.format(device_id, datapoint_name, new_value)
+            self.SendRequest("/", 2001, self.HM_XMLRPC_PRESS_BODY.format(device_id, datapoint_name, new_value), "POST")
+        else:
+            self.SendRequest("/", 2001, self.HM_XMLRPC_SETVALUE_BODY.format(device_id, datapoint_name, new_value), "POST")
         return self.getDataPointXMLRPC(device_id, datapoint_name)
 
     def getDataPointXMLRPC(self, device_id, datapoint_name):
@@ -110,7 +116,7 @@ class HMXMLAPI(eg.PluginBase):
         else:
             datapointValue = "unknown"
         eg.globals.ccu2statechangedto = datapointValue
-        print "Device-ID {0} datapoint {1} is set to {2}".format(device_id, datapoint_name, datapointValue)
+        print "device_id {0} datapoint {1} is {2}".format(device_id, datapoint_name, datapointValue)
         return datapointValue
 
 ##########################
@@ -273,7 +279,7 @@ class turnOnOrOffForXXMLRPC(eg.ActionBase):
         self.plugin.SendRequest("/", 2001, self.plugin.HM_XMLRPC_ONTIME_BODY.format(device_id, seconds), "POST")
         self.plugin.changeStateXMLRPC(device_id, str(new_value).lower())
 
-    def GetLabel(self, device_id, new_value):
+    def GetLabel(self, device_id, new_value, seconds):
         return "setValue STATE of Device-ID {0} to {1} for {2} seconds".format(device_id, new_value, seconds)
 
     def Configure(self, device_id="", new_value=True, seconds=60):
@@ -338,26 +344,140 @@ class getValueXMLRPC(eg.ActionBase):
 class setDataPointXMLRPC(eg.ActionBase):
     name = "CCU2 XML-RPC: setDataPoint"
 
-    def __call__(self, device_id, datapoint_name, new_value):
+    def __call__(self, device_id, datapoint_name, new_value, check_inhibit):
         #print "Action 'setDataPoint {1} XML-RPC' - Device-ID: {0} to {2}".format(device_id, datapoint_name, new_value)
-        return self.plugin.setDataPointXMLRPC(device_id, datapoint_name, new_value)
+        inhibit = "False"
+        if check_inhibit:
+            inhibit = self.plugin.getDataPointXMLRPC(device_id, "INHIBIT")
+        
+        if inhibit.lower() != "true":
+            return self.plugin.setDataPointXMLRPC(device_id, datapoint_name, new_value)
+        else:
+            print "Skip because of INHIBIT"
+            return "false"
 
-    def GetLabel(self, device_id, datapoint_name, new_value):
-        return "setDataPoint {1} of Device-ID {0} to {2}".format(device_id, datapoint_name, new_value)
+    def GetLabel(self, device_id, datapoint_name, new_value, check_inhibit):
+        return "setDataPoint {1} of Device-ID {0} to {2} (check inhibit: {3})".format(device_id, datapoint_name, new_value, check_inhibit)
 
-    def Configure(self, device_id="", datapoint_name="STATE", new_value=""):
+    def Configure(self, device_id="", datapoint_name="STATE", new_value="", check_inhibit=False):
         panel = eg.ConfigPanel(self)
         device_idCtrl = panel.TextCtrl(device_id)
-        dataPointCtrl = wx.ComboBox(panel, -1, value="STATE", choices=['STATE', 'WORKING', 'LEVEL'], style=wx.CB_DROPDOWN)
+        dataPointCtrl = wx.ComboBox(panel, -1, value="STATE", choices=['STATE', 'WORKING', 'LEVEL','INHIBIT','PRESS_SHORT','PRESS_LONG'], style=wx.CB_DROPDOWN)
         new_valueCtrl = panel.TextCtrl(new_value)
+        check_inhibitCtrl = panel.CheckBox(check_inhibit)
+
         panel.AddLine(panel.StaticText("Device-ID:"), device_idCtrl)
         panel.AddLine(panel.StaticText("Datapoint:"), dataPointCtrl)
         panel.AddLine(panel.StaticText("Value:"), new_valueCtrl)
+        panel.AddLine(panel.StaticText("Check Inhibit First:"), check_inhibitCtrl)
         while panel.Affirmed():
             panel.SetResult(
                 device_idCtrl.GetValue(),
                 dataPointCtrl.GetValue(),
-                new_valueCtrl.GetValue()
+                new_valueCtrl.GetValue(),
+                check_inhibitCtrl.GetValue()
+            )
+
+class setDataPointXMLRPCLumi(eg.ActionBase):
+    name = "CCU2 XML-RPC: setDataPoint with Lumi"
+
+    def __call__(self, device_id, datapoint_name, new_value, check_inhibit, minLux, maxLux):
+        #print "Action 'setDataPoint {1} XML-RPC' - Device-ID: {0} to {2}".format(device_id, datapoint_name, new_value)
+        inhibit = "False"
+        if check_inhibit:
+            inhibit = self.plugin.getDataPointXMLRPC(device_id, "INHIBIT")
+        
+        print "lumi_lux {0} , minLux {1} , maxLux {2}".format(eg.globals.lumi_lux, minLux, maxLux)
+
+        if inhibit.lower() != "true" and eg.globals.lumi_lux > int(minLux) and  eg.globals.lumi_lux < int(maxLux):
+            return self.plugin.setDataPointXMLRPC(device_id, datapoint_name, new_value)
+        else:
+            print "Skip because of INHIBIT or lumi"
+            return "false"
+
+    def GetLabel(self, device_id, datapoint_name, new_value, check_inhibit, minLux, maxLux):
+        return "setDataPoint {1} of Device-ID {0} to {2} (check inhibit: {3})".format(device_id, datapoint_name, new_value, check_inhibit)
+
+    def Configure(self, device_id="", datapoint_name="STATE", new_value="", check_inhibit=False, minLux="0", maxLux="100000"):
+        panel = eg.ConfigPanel(self)
+        device_idCtrl = panel.TextCtrl(device_id)
+        dataPointCtrl = wx.ComboBox(panel, -1, value="STATE", choices=['STATE', 'WORKING', 'LEVEL','INHIBIT','PRESS_SHORT','PRESS_LONG'], style=wx.CB_DROPDOWN)
+        new_valueCtrl = panel.TextCtrl(new_value)
+        check_inhibitCtrl = panel.CheckBox(check_inhibit)
+        minLuxCtrl = panel.TextCtrl(minLux)
+        maxLuxCtrl = panel.TextCtrl(maxLux)
+
+        panel.AddLine(panel.StaticText("Device-ID:"), device_idCtrl)
+        panel.AddLine(panel.StaticText("Datapoint:"), dataPointCtrl)
+        panel.AddLine(panel.StaticText("Value:"), new_valueCtrl)
+        panel.AddLine(panel.StaticText("Check Inhibit First:"), check_inhibitCtrl)
+        panel.AddLine(panel.StaticText("Min Lux"), minLuxCtrl)
+        panel.AddLine(panel.StaticText("Max Lux"), maxLuxCtrl)
+        while panel.Affirmed():
+            panel.SetResult(
+                device_idCtrl.GetValue(),
+                dataPointCtrl.GetValue(),
+                new_valueCtrl.GetValue(),
+                check_inhibitCtrl.GetValue(),
+                minLuxCtrl.GetValue(),
+                maxLuxCtrl.GetValue()
+            )
+
+class setLevelXMLRPC(eg.ActionBase):
+    name = "CCU2 XML-RPC: setLevel"
+
+    def __call__(self, device_id, datapoint_name, new_value, check_inhibit, aboveLevel, belowLevel):
+        #print "Action 'setDataPoint {1} XML-RPC' - Device-ID: {0} to {2}".format(device_id, datapoint_name, new_value)
+        inhibit = "False"
+        if check_inhibit:
+            inhibit = self.plugin.getDataPointXMLRPC(device_id, "INHIBIT")
+        
+        levelInRange = 1
+        if aboveLevel != "" or belowLevel != "":
+            level = self.plugin.getDataPointXMLRPC(device_id, "LEVEL")
+            
+            above = 1
+            if aboveLevel != "" and aboveLevel < level:
+                above = 0
+            
+            below = 1
+            if belowLevel != "" and belowLevel > level:
+                below = 0
+
+            if below == 0 or above == 0:
+                levelInRange = 0
+        
+        if inhibit.lower() != "true" and levelInRange == 1:
+            return self.plugin.setDataPointXMLRPC(device_id, "LEVEL", new_value)
+        else:
+            print "Skip because of INHIBIT ({1}) or level not in range ({2})".format(inhibit, levelInRange)
+            return "false"
+
+    def GetLabel(self, device_id, datapoint_name, new_value, check_inhibit, aboveLevel, belowLevel):
+        return "setDataPoint {1} of Device-ID {0} to {2} (check inhibit: {3})".format(device_id, datapoint_name, new_value, check_inhibit)
+
+    def Configure(self, device_id="", new_value="", check_inhibit=False, aboveLevel="", belowLevel=""):
+        panel = eg.ConfigPanel(self)
+        device_idCtrl = panel.TextCtrl(device_id)
+        new_valueCtrl = panel.TextCtrl(new_value)
+        check_inhibitCtrl = panel.CheckBox(check_inhibit)
+        aboveLevelCtrl = panel.TextCtrl(aboveLevel)
+        belowLevelCtrl = panel.TextCtrl(belowLevel)
+
+        panel.AddLine(panel.StaticText("Device-ID:"), device_idCtrl)
+        panel.AddLine(panel.StaticText("Datapoint:"), dataPointCtrl)
+        panel.AddLine(panel.StaticText("Value:"), new_valueCtrl)
+        panel.AddLine(panel.StaticText("Check Inhibit First:"), check_inhibitCtrl)
+        panel.AddLine(panel.StaticText("Above Level"), aboveLevelCtrl)
+        panel.AddLine(panel.StaticText("Below Level"), belowLevelCtrl)
+        while panel.Affirmed():
+            panel.SetResult(
+                device_idCtrl.GetValue(),
+                dataPointCtrl.GetValue(),
+                new_valueCtrl.GetValue(),
+                check_inhibitCtrl.GetValue(),
+                aboveLevelCtrl.GetValue(),
+                belowLevelCtrl.GetValue()
             )
 
 
@@ -374,7 +494,7 @@ class getDataPointXMLRPC(eg.ActionBase):
     def Configure(self, device_id="", datapoint_name="STATE"):
         panel = eg.ConfigPanel(self)
         device_idCtrl = panel.TextCtrl(device_id)
-        dataPointCtrl = wx.ComboBox(panel, -1, value="STATE", choices=['STATE', 'WORKING', 'LEVEL'], style=wx.CB_DROPDOWN)
+        dataPointCtrl = wx.ComboBox(panel, -1, value="STATE", choices=['STATE', 'WORKING', 'LEVEL','INHIBIT'], style=wx.CB_DROPDOWN)
         panel.AddLine(panel.StaticText("Device-ID:"), device_idCtrl)
         panel.AddLine(panel.StaticText("Datapoint:"), dataPointCtrl)
         while panel.Affirmed():
@@ -413,7 +533,7 @@ class setStateFromAlexaEvent(eg.ActionBase):
 
             self.plugin.changeStateXMLRPC(device_id, new_value)
         elif aktion_lower == "setpercentagerequest":
-            new_value = eg.event.payload[2]
+            new_value = eg.event.payload[2] / 100
 
             self.plugin.setDataPointXMLRPC(device_id, "LEVEL", new_value)
         else:

@@ -1,0 +1,2067 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EventGhost Version="1610" Guid="{DA57EE0F-F5AA-4F9B-8FEE-52EAE55110F6}" Time="1693336553.78">
+    <Autostart Name="Autostart">
+        <Action>
+            EventGhost.EnableExclusive(XmlIdLink(70))
+        </Action>
+        <Plugin Identifier="Webserver" Guid="{E4305D8E-A3D3-4672-B06E-4EA1F0F6C673}" File="Webserver">
+            gAIoWAQAAABIVFRQcQBNmB9YJQAAAEM6XFByb2dyYW0gRmlsZXMgKHg4NilcRXZlbnRHaG9zdFx3ZWJxAVgKAAAARXZlbnRHaG9zdHECWAAAAABxA2gDdHEELg==
+        </Plugin>
+        <Plugin Enabled="False" Identifier="FS20PCS" Guid="{D76A6D18-142A-4F75-8F93-9CDA86DBC310}" File="FS20PCS">
+            gAIpLg==
+        </Plugin>
+        <Plugin Enabled="False" Identifier="FS20PCE" Guid="{5EF0F083-8281-4AEC-8399-9675DB0D8C58}" File="FS20PCE">
+            gAJdcQBYCAAAADIyMTEyMjExcQFYBAAAAD8/Pz9xAlgFAAAAQWxsZXNxA4dxBGGFcQUu
+        </Plugin>
+        <Plugin Identifier="HMXMLAPI" Guid="Homematic-XML-API" File="Homematic-XML-API">
+            gAJYBAAAAEhUVFBxAFgNAAAAMTkyLjE2OC4xLjEwNHEBS1CHcQIu
+        </Plugin>
+        <Plugin Identifier="HTTPRelay" Guid="HTTPRelay" File="HTTPRelay">
+            gAIpLg==
+        </Plugin>
+        <Plugin Identifier="Netatmo" Guid="Netatmo" File="Netatmo">
+            gAIoWBIAAABrbGVtZW5zbEBnbWFpbC5jb21xAFgLAAAAS2xlbWVuc2wxMjNxAVgYAAAANTVhNzhiNmY0OTVhODhjMjg0MDNjZDJjcQJYGgAAAFJZb2dmYm5LVXo0dGxJbTViVFRFbVlXU3FucQNYBwAAAE5ldGF0bW9xBE0sAXRxBS4=
+        </Plugin>
+        <Plugin Identifier="RealScheduler" Guid="{12312312312312321321}" File="RealScheduler">
+            gAKIWAIAAABSU3EAhnEBLg==
+        </Plugin>
+        <Plugin Identifier="Suntracker" Guid="{6AE8C0C3-93B4-4446-BC77-FDFA2528E531}" File="SunTracker">
+            gAIoVQUxNi4zNnEAVQU0OC4yMXEBWAgAAABBVVhYMDAwMXECWB0AAAAwMTAxLDA1MDEsMDYwNiwxMjI0LDEyMjUsMTIyNnEDWCIAAAAwMTA2LDA0MDIsMDQwNSwwNTEyLDA1MjIsMDUyMywwNjI1cQRYAgAAADA1cQVYAgAAADEwcQaJiIlYBgAAACswMS4wMHEHWAYAAABtZXRyaWNxCEsFiVgHAAAAV0VBVEhFUnEJiXRxCi4=
+        </Plugin>
+        <Plugin Identifier="EventGhostUtils" Guid="EventGhostUtils" File="EventGhostUtils">
+            gAIpLg==
+        </Plugin>
+        <Plugin Enabled="False" Identifier="Scheduler" Guid="{5C822DE2-97E7-4DB8-8281-CD77ED216A63}" File="Scheduler">
+            gAJYHQAAADAxMDEsMDUwMSwxMjI0LDEyMjUsMTIyNiwxMjMxcQBYAAAAAHEBiYdxAi4=
+        </Plugin>
+        <Plugin Enabled="False" Identifier="DirectoryWatcher" Guid="{003FABA6-AA6A-4395-9DB6-DC88EB07F5FE}" File="DirectoryWatcher">
+            gAJYGAAAAFo6XFNlcnZlckZvbGRlcnNcS2FtZXJhc3EAiIZxAS4=
+        </Plugin>
+        <Plugin Identifier="FileOperations" Guid="{50D933C5-F93B-4A8A-A6CE-95A40F906036}" File="FileOperations">
+            gAIpLg==
+        </Plugin>
+        <Plugin Enabled="False" Identifier="PingPlugin" Guid="{E0E0AFD7-31D5-41FE-B9DA-237234DB07A7}" File="Ping">
+            gAIpLg==
+        </Plugin>
+        <Plugin Enabled="False" Identifier="HMXMLAPI2" Guid="Yowsup-API" File="Yowsup-API">
+            gAJYBAAAAEhUVFBxAFgNAAAAMTkyLjE2OC4xLjEwM3EBS1CHcQIu
+        </Plugin>
+        <Plugin Identifier="HMAlexaCallback" Guid="Homematic-AlexaCallback" File="Homematic-AlexaCallback">
+            gAJNuSKFcQAu
+        </Plugin>
+        <Action>
+            EventGhost.TriggerEvent(u'HTTP.Tuerglocke-Ein', 0.0)
+        </Action>
+        <Action>
+            EventGhost.TriggerEvent(u'HTTP.OG-Ambient-Aus', 0.0)
+        </Action>
+        <Action>
+            EventGhost.TriggerEvent(u'HTTP.Aussen-Haus-Aus', 0.0)
+        </Action>
+        <Action Enabled="False">
+            EventGhost.TriggerEvent(u'HTTP.Start-Rollos-Scheduler', 0.0)
+        </Action>
+        <Action Enabled="False">
+            EventGhost.TriggerEvent(u'HTTP.Start-Regenstand-Scheduler', 0.0)
+        </Action>
+        <Action Enabled="False">
+            EventGhost.TriggerEvent(u'HTTP.Start-Bewaesserung-Scheduler', 0.0)
+        </Action>
+        <Action Enabled="False">
+            EventGhost.TriggerEvent(u'Ping.AddHosts', 0.0)
+        </Action>
+        <Action>
+            EventGhost.TriggerEvent(u'Main.Gartenbewaesserung.Ventil.OFF', 0.0)
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals.alarmanlage = False')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals.klemensl_home = False')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals.klemensl_home_ts = 0')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals.birgit_home = False')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals.birgit_home_ts = 0')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals.regenstand_heute = 0')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals.ccu2statechangedto = "false"')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals._210_12="0"')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals._212_12="0"')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals.weg_automatik=True')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals.alarmanlage_rollo_automatik=True')
+        </Action>
+        <Action>
+            EventGhost.PythonCommand(u'eg.globals.timer_rollo_automatik=True')
+        </Action>
+        <Action Name="set lumi_lux_osten">
+            EventGhost.PythonScript(u'eg.globals.lumi_lux_osten = 0\neg.globals.lumi_lux_osten_threshold = {u\'dark\': 0, u\'medium\': 0, u\'bright\': 0}\neg.globals.lumi_luxMax_osten = 0\neg.globals.lumi_luxMaxTS_osten = ""')
+        </Action>
+        <Action Name="set lumi_lux_sueden">
+            EventGhost.PythonScript(u'eg.globals.lumi_lux_sueden = 0\neg.globals.lumi_lux_sueden_threshold = {u\'dark\': 0, u\'medium\': 0, u\'bright\': 0}\neg.globals.lumi_luxMax_sueden = 0\neg.globals.lumi_luxMaxTS_sueden = ""')
+        </Action>
+        <Action Name="set klima lower and upper">
+            EventGhost.PythonScript(u'eg.globals.klima_schlafzimmer_upper = 22.4\neg.globals.klima_schlafzimmer_lower = 21.5\n\neg.globals.klima_kinderzimmer_upper = 22.4\neg.globals.klima_kinderzimmer_lower = 21.5')
+        </Action>
+        <Action Name="set klima status">
+            EventGhost.PythonScript(u'eg.globals.klima_schlafzimmer_status = False\neg.globals.klima_kinderzimmer_status = False')
+        </Action>
+        <Action Enabled="False">
+            EventGhost.PythonCommand(u'eg.globals.lumi_lux_osten = 0')
+        </Action>
+        <Action Enabled="False">
+            EventGhost.PythonCommand(u"eg.globals.lumi_lux_osten_threshold = {u'0_1k': 0, u'2k_xk': 0, u'1k_2k': 1}")
+        </Action>
+        <Action Enabled="False">
+            EventGhost.PythonCommand(u'eg.globals.lumi_luxMax_osten = 0')
+        </Action>
+        <Action Enabled="False">
+            EventGhost.PythonCommand(u'eg.globals.lumi_luxMaxTS_osten = ""')
+        </Action>
+        <Action>
+            EventGhost.NewJumpIf(XmlIdLink(262), 2, True)
+        </Action>
+        <Action>
+            EventGhost.NewJumpIf(XmlIdLink(283), 2, True)
+        </Action>
+        <Action Enabled="False">
+            EventGhost.NewJumpIf(XmlIdLink(323), 0, True)
+        </Action>
+        <Plugin Identifier="MQTTthreads" Guid="{44A1C5BC-311A-4651-B4A6-629BEAC0A80B}" File="MQTT_Client">
+            gAIpLg==
+        </Plugin>
+        <Action Name="MQTT Client: Start a new MQTT subscription - Sonoff" Enabled="False">
+            MQTTthreads.MQTTclient(u'Sonoff', u'192.168.1.101', 1883, u'cmnd/#', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription - ESPEasy-WFang" Enabled="False">
+            MQTTthreads.MQTTclient(u'ESPEasy-WFang', u'192.168.1.102', 1883, u'/ESP_Easy_WFang/#', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription - ESPEasy-Eingang" Enabled="False">
+            MQTTthreads.MQTTclient(u'ESPEasy-Eingang', u'192.168.1.102', 1883, u'/ESP_Easy_Eingang/#', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - LUMI-Osten">
+            MQTTthreads.MQTTclient(u'LUMI-Osten', u'192.168.1.102', 1883, u'zigbee2mqtt/LUMI-Osten', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - LUMI-Sueden">
+            MQTTthreads.MQTTclient(u'LUMI-Sueden', u'192.168.1.102', 1883, u'zigbee2mqtt/LUMI-Sueden', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Switch02">
+            MQTTthreads.MQTTclient(u'Switch02', u'192.168.1.102', 1883, u'zigbee2mqtt/Switch02', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Switch03">
+            MQTTthreads.MQTTclient(u'Switch03', u'192.168.1.102', 1883, u'zigbee2mqtt/Switch03', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Switch04">
+            MQTTthreads.MQTTclient(u'Switch04', u'192.168.1.102', 1883, u'zigbee2mqtt/Switch04', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Switch05">
+            MQTTthreads.MQTTclient(u'Switch05', u'192.168.1.102', 1883, u'zigbee2mqtt/Switch05', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Switch06">
+            MQTTthreads.MQTTclient(u'Switch06', u'192.168.1.102', 1883, u'zigbee2mqtt/Switch06', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Climate01">
+            MQTTthreads.MQTTclient(u'Climate01', u'192.168.1.102', 1883, u'zigbee2mqtt/Climate01', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Pir01">
+            MQTTthreads.MQTTclient(u'Pir01', u'192.168.1.102', 1883, u'zigbee2mqtt/Pir01', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Taster01">
+            MQTTthreads.MQTTclient(u'Taster01', u'192.168.1.102', 1883, u'zigbee2mqtt/Taster01', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Taster02">
+            MQTTthreads.MQTTclient(u'Taster02', u'192.168.1.102', 1883, u'zigbee2mqtt/Taster02', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Taster03">
+            MQTTthreads.MQTTclient(u'Taster03', u'192.168.1.102', 1883, u'zigbee2mqtt/Taster03', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Plug01">
+            MQTTthreads.MQTTclient(u'Plug01', u'192.168.1.102', 1883, u'zigbee2mqtt/Plug01', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Plug02">
+            MQTTthreads.MQTTclient(u'Plug02', u'192.168.1.102', 1883, u'zigbee2mqtt/Plug02', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Plug03">
+            MQTTthreads.MQTTclient(u'Plug03', u'192.168.1.102', 1883, u'zigbee2mqtt/Plug03', False)
+        </Action>
+        <Action Name="MQTT Client: Start a new MQTT subscription  - Terrasentuer">
+            MQTTthreads.MQTTclient(u'Terrassentuer', u'192.168.1.102', 1883, u'zigbee2mqtt/Terrassentuer', False)
+        </Action>
+    </Autostart>
+    <Folder Name="A87" id="70" Expanded="True">
+        <Folder Name="Obergeschoss">
+            <Macro Name="OG-Alles-Aus" id="72">
+                <Action>
+                    HMXMLAPI.setDataPointXMLRPC(u'BidCoS-RF:5', u'PRESS_SHORT', u'1', False)
+                </Action>
+                <Action Enabled="False">
+                    HTTPRelay.sendGETRequest(u'http', u'192.168.1.212', 80, u'/control?cmd=gpio,12,0', True)
+                </Action>
+                <Action Name="Ambient OFF">
+                    EventGhost.PythonScript(u'eg.globals.mqtt_state_off = "{\\"state\\":\\"OFF\\"}"\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch06/set\', u\'{eg.globals.mqtt_state_off}\', 0, False)')
+                </Action>
+                <Action Name="Weihnachten OFF">
+                    EventGhost.PythonScript(u'eg.globals.mqtt_state_off = "{\\"state\\":\\"OFF\\"}"\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch05/set\', u\'{eg.globals.mqtt_state_off}\', 0, False)')
+                </Action>
+                <Action Name="Plug01 OFF">
+                    EventGhost.PythonScript(u'eg.globals.mqtt_state_off = "{\\"state\\":\\"OFF\\"}"\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Plug01/set\', u\'{eg.globals.mqtt_state_off}\', 0, False)')
+                </Action>
+            </Macro>
+            <Folder Name="TV-Ambilight">
+                <Macro Name="Farbe-Setzen">
+                    <Event Name="HTTP.AMBI.set-rgb" />
+                    <Action Name="Hyperion-PLINK-Farbe aus Payload">
+                        EventGhost.PythonScript(u'from subprocess import call\n\ncolor = str(eg.event.payload[0])\ncall(["C:\\Users\\Administrator\\Downloads\\plink.exe", "192.168.1.107", "-l", "root", "-pw", "libreelec", "/storage/hyperion/bin/hyperion-remote.sh -c " + color])')
+                    </Action>
+                    <Action Enabled="False">
+                        HTTPRelay.sendGETRequest(u'http', u'192.168.1.109', 7999, u'/1/config/set?emulate_motion=1', False)
+                    </Action>
+                </Macro>
+                <Macro Name="Farbe-Clearall">
+                    <Event Name="HTTP.AMBI.clearall" />
+                    <Action Name="Hyperion-PLINK-clearall">
+                        EventGhost.PythonScript(u'from subprocess import call\n\ncall(["C:\\Users\\Administrator\\Downloads\\plink.exe", "192.168.1.107", "-l", "root", "-pw", "libreelec", "/storage/hyperion/bin/hyperion-remote.sh --clearall"])')
+                    </Action>
+                    <Action Enabled="False">
+                        HTTPRelay.sendGETRequest(u'http', u'192.168.1.109', 7999, u'/1/config/set?emulate_motion=0', False)
+                    </Action>
+                </Macro>
+                <Macro Name="Farbe-weiss">
+                    <Event Name="HTTP.AMBI.set-white" />
+                    <Action Name="Hyperion-PLINK-white">
+                        EventGhost.PythonScript(u'from subprocess import call\n\ncall(["C:\\Users\\Administrator\\Downloads\\plink.exe", "192.168.1.107", "-l", "root", "-pw", "libreelec", "/storage/hyperion/bin/hyperion-remote.sh -c white"])')
+                    </Action>
+                </Macro>
+                <Macro Name="Farbe-schwarz">
+                    <Event Name="HTTP.AMBI.set-black" />
+                    <Event Name="RS.AMBI[2:30]" Enabled="False" />
+                    <Event Name="WEATHER.Sunrise" Enabled="False" />
+                    <Action Name="Hyperion-PLINK-Black">
+                        EventGhost.PythonScript(u'from subprocess import call\n\ncall(["C:\\Users\\klemensl\\Downloads\\plink.exe", "192.168.1.107", "-l", "root", "-pw", "libreelec", "/storage/hyperion/bin/hyperion-remote.sh -c black"])')
+                    </Action>
+                    <Action>
+                        HMXMLAPI.setDataPointXMLRPC(u'BidCoS-RF:12', u'PRESS_SHORT', u'1', False)
+                    </Action>
+                </Macro>
+                <Macro Name="Input-Grabber-TV">
+                    <Event Name="HTTP.AMBI.input-grabber-tv" />
+                    <Event Name="MQTT.zigbee2mqtt/Taster02.long" id="98" Enabled="False" />
+                    <Event Name="RS.AMBI[17:30]" Enabled="False" />
+                    <Event Name="WEATHER.Sunset" Enabled="False" />
+                    <Action Name="Hyperion-Grabber">
+                        EventGhost.PythonScript(u'from subprocess import call\n\ncall(["C:\\Users\\klemensl\\Downloads\\plink.exe", "192.168.1.107", "-l", "root", "-pw", "libreelec", "~/.kodi/userdata/hyperion_grabber_aktivieren.sh &lt;/dev/null &gt;/dev/null 2&gt;&amp;1 &amp;"])')
+                    </Action>
+                    <Action>
+                        HMXMLAPI.setDataPointXMLRPC(u'BidCoS-RF:11', u'PRESS_SHORT', u'1', False)
+                    </Action>
+                    <Action>
+                        EventGhost.DisableItem(XmlIdLink(98))
+                    </Action>
+                    <Action>
+                        EventGhost.EnableItem(XmlIdLink(107))
+                    </Action>
+                </Macro>
+                <Macro Name="Input-Grabber-FireTV">
+                    <Event Name="HTTP.AMBI.input-grabber-fire" />
+                    <Event Name="MQTT.zigbee2mqtt/Taster02.long" id="107" />
+                    <Event Name="RS.AMBI[17:30]" Enabled="False" />
+                    <Event Name="WEATHER.Sunset" Enabled="False" />
+                    <Action Name="Hyperion-Grabber">
+                        EventGhost.PythonScript(u'from subprocess import call\n\ncall(["C:\\Users\\klemensl\\Downloads\\plink.exe", "192.168.1.107", "-l", "root", "-pw", "libreelec", "~/.kodi/userdata/hyperion_grabber_aktivieren.sh &lt;/dev/null &gt;/dev/null 2&gt;&amp;1 &amp;"])')
+                    </Action>
+                    <Action>
+                        HMXMLAPI.setDataPointXMLRPC(u'BidCoS-RF:10', u'PRESS_SHORT', u'1', False)
+                    </Action>
+                    <Action>
+                        EventGhost.DisableItem(XmlIdLink(107))
+                    </Action>
+                    <Action>
+                        EventGhost.EnableItem(XmlIdLink(98))
+                    </Action>
+                </Macro>
+                <Macro Name="Input-Kodi">
+                    <Event Name="HTTP.AMBI.input-kodi" />
+                    <Action Name="Hyperion-Kodi">
+                        EventGhost.PythonScript(u'from subprocess import call\n\ncall(["C:\\Users\\klemensl\\Downloads\\plink.exe", "192.168.1.107", "-l", "root", "-pw", "libreelec", "~/.kodi/userdata/hyperion_kodi_aktivieren.sh &lt;/dev/null &gt;/dev/null 2&gt;&amp;1 &amp;"])')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Ambient (Zigbee)">
+                <Macro Name="Zigbee-Button Toggle" Expanded="True">
+                    <Event Name="MQTT.zigbee2mqtt/Taster02.single" />
+                    <Action Name="Toggle Ambient">
+                        EventGhost.PythonScript(u'eg.globals.mqtt_state_toggle = "{\\"state\\":\\"TOGGLE\\"}"\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/SwitchAmbient/set\', u\'{eg.globals.mqtt_state_toggle}\', 0, False)')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Stehlampe (Zigbee)">
+                <Folder Name="Zigbee-Button Toggle" Enabled="False">
+                    <Macro Name="Zigbee-Button Toggle (ON)" id="123">
+                        <Event Name="MQTT.zigbee2mqtt/Taster.single" />
+                        <Action>
+                            HMXMLAPI.setDataPointXMLRPC(u'MEQ0271709:1', u'STATE', u'1', False)
+                        </Action>
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(123))
+                        </Action>
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(128))
+                        </Action>
+                    </Macro>
+                    <Macro Name="Zigbee-Button Toggle (OFF)" id="128" Enabled="False">
+                        <Event Name="MQTT.zigbee2mqtt/Taster.single" />
+                        <Action>
+                            HMXMLAPI.setDataPointXMLRPC(u'MEQ0271709:1', u'STATE', u'0', False)
+                        </Action>
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(128))
+                        </Action>
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(123))
+                        </Action>
+                    </Macro>
+                </Folder>
+                <Macro Name="Zigbee-Button Toggle">
+                    <Event Name="MQTT.zigbee2mqtt/Taster01.single" />
+                    <Action Name="Toggle Stehlampe">
+                        EventGhost.PythonScript(u'eg.globals.mqtt_state_toggle = "{\\"state\\":\\"TOGGLE\\"}"\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Plug01/set\', u\'{eg.globals.mqtt_state_toggle}\', 0, False)')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Weihnachten (Zigbee)">
+                <Macro Name="Zigbee-Button Toggle" Expanded="True">
+                    <Event Name="MQTT.zigbee2mqtt/Taster01.double" />
+                    <Action Name="Toggle Weihnachten" Enabled="False">
+                        EventGhost.PythonScript(u'eg.globals.mqtt_state_toggle = "{\\"state\\":\\"TOGGLE\\"}"\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch05/set\', u\'{eg.globals.mqtt_state_toggle}\', 0, False)')
+                    </Action>
+                    <Action Name="Toggle Weihnachten">
+                        MQTTthreads.publishMQTT(u'Give this MQTT message a name', u'192.168.1.102', 1883, u'zigbee2mqtt/Switch05/set', u'TOGGLE', 0, False)
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Wohnzimmer (Zigbee)">
+                <Macro Name="Zigbee-Button Toggle">
+                    <Event Name="MQTT.zigbee2mqtt/Taster02.double" />
+                    <Action>
+                        HMXMLAPI.setDataPointXMLRPC(u'BidCoS-RF:21', u'PRESS_SHORT', u'1', False)
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Stiegenlampe (Zigbee)">
+                <Macro Name="EIN">
+                    <Event Name="HTTP.CCU.MEQ1007952:1-STATE:1" />
+                    <Event Name="HTTP.CCU.OEQ0378808:1-STATE:1" />
+                    <Event Name="HTTP.CCU.LEQ0883366:1-STATE:1" />
+                    <Action Name="Reset Liste" Enabled="False">
+                        EventGhost.PythonScript(u"eg.globals._wz_stiege_essen.clear()\nprint('DEBUG: OG Eingeschaltet f. Stiegenlampe: ', len(eg.globals._wz_stiege_essen))")
+                    </Action>
+                    <Action Name="Increase eg.globals._wz_stiege">
+                        EventGhost.PythonScript(u"if hasattr(eg.globals, '_wz_stiege_essen') is False:\n    eg.globals._wz_stiege_essen = set()\n\nprint('DEBUG: add eg.event.string: ', eg.event.string.split('-')[0])\neg.globals._wz_stiege_essen.add(eg.event.string.split('-')[0])\nprint('DEBUG: OG Eingeschaltet f. Stiegenlampe: ', len(eg.globals._wz_stiege_essen))")
+                    </Action>
+                    <Action Name="Turn ON Switch06">
+                        EventGhost.PythonScript(u'eg.globals.mqtt_state_toggle = "{\\"state\\":\\"ON\\"}"\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch06/set\', u\'{eg.globals.mqtt_state_toggle}\', 0, False)')
+                    </Action>
+                </Macro>
+                <Macro Name="AUS">
+                    <Event Name="HTTP.CCU.MEQ1007952:1-STATE:0" />
+                    <Event Name="HTTP.CCU.OEQ0378808:1-STATE:0" />
+                    <Event Name="HTTP.CCU.LEQ0883366:1-STATE:0" />
+                    <Action Name="Decrease eg.globals._wz_stiege">
+                        EventGhost.PythonScript(u"if hasattr(eg.globals, '_wz_stiege_essen') is False:\n    eg.globals._wz_stiege_essen = set()\n\nprint('DEBUG: remove eg.event.string: ', eg.event.string.split('-')[0])\neg.globals._wz_stiege_essen.discard(eg.event.string.split('-')[0])\nprint('DEBUG: OG Eingeschaltet f. Stiegenlampe: ', len(eg.globals._wz_stiege_essen))")
+                    </Action>
+                    <Action Name="Turn OFF Switch06">
+                        EventGhost.PythonScript(u'if len(eg.globals._wz_stiege_essen) == 0:\n    eg.globals.mqtt_state_toggle = "{\\"state\\":\\"OFF\\"}"\n    eg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch06/set\', u\'{eg.globals.mqtt_state_toggle}\', 0, False)\nelse:\n    print("do not turn OFF yet: ", len(eg.globals._wz_stiege_essen))')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Tuerklingel">
+                <Macro Name="Tuerklingel" id="160">
+                    <Event Name="HTTP.CCU.MEQ0782714:1-STATE:0" Enabled="False" />
+                    <Event Name="HTTP.CCU.MEQ0046607:8-STATE:0" />
+                    <Event Name="HTTP.Tuerglocke" />
+                    <Event Name="HID.Button.12" Enabled="False" />
+                    <Action Enabled="False">
+                        FS20PCS.OnOffTimer(5263363, 1)
+                    </Action>
+                    <Action Name="Sonoff Glocke">
+                        EventGhost.PythonScript(u"eg.plugins.HTTPRelay.sendGETRequest(u'http', u'192.168.1.215', 80, u'/control?cmd=event,LongPulse=1', True)")
+                    </Action>
+                    <Action>
+                        EventGhost.FlushEvents()
+                    </Action>
+                </Macro>
+                <Macro Name="Tuerklingel-Benachrichtigung senden" Enabled="False">
+                    <Event Name="HID.Button.12" />
+                    <Action Name="Send Mail" Enabled="False">
+                        EventGhost.PythonScript(u'import smtplib\n\nfromaddr = \'albrechtsgasse87@gmail.com\'\ntoaddrs  = [\'klemensl@gmail.com\',\'birgit.loschy@gmail.com\']\nmsg = "\\r\\n".join([\n  "From: albrechtsgasse87@gmail.com",\n  "To: klemensl@gmail.com;birgit.loschy@gmail.com",\n  "Subject: T\xfcrklingel gel\xe4utet..",\n  "",\n  ""\n  ])\n\n# Credentials (if needed)\nusername = \'klemensl@gmail.com\'\npassword = \'Mikasa1818\'\n\n# The actual mail send\nserver = smtplib.SMTP(\'smtp.gmail.com:587\')\n#server = smtplib.SMTP_SSL(\'smtp.gmail.com:465\')\n#server.ehlo()\nserver.starttls()\nserver.login(username, password)\nserver.sendmail(fromaddr, toaddrs, msg)\nserver.quit()')
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.PythonCommand("HTTPRelay.sendYowsupMessage(u'http', u'192.168.1.103', 80, u'T\\xfcrklingel gel\\xe4utet!')")
+                    </Action>
+                    <Action>
+                        EventGhost.FlushEvents()
+                    </Action>
+                </Macro>
+                <Macro Name="Disable: Tuerklingel">
+                    <Event Name="HTTP.Tuerglocke-Aus" />
+                    <Event Name="HTTP.Tuerglocke:0" />
+                    <Action>
+                        EventGhost.DisableItem(XmlIdLink(160))
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.tuerklingelstatus=False')
+                    </Action>
+                </Macro>
+                <Macro Name="Enable: Tuerklingel">
+                    <Event Name="HTTP.Tuerglocke-Ein" />
+                    <Event Name="HTTP.Tuerglocke:1" />
+                    <Action>
+                        EventGhost.EnableItem(XmlIdLink(160))
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.tuerklingelstatus=True')
+                    </Action>
+                </Macro>
+            </Folder>
+        </Folder>
+        <Folder Name="Untergeschoss">
+            <Folder Name="Luftbefeuchter-Schlafzimmer (Zigbee)" Expanded="True">
+                <Macro Name="Zigbee-Button Toggle" Expanded="True">
+                    <Event Name="MQTT.zigbee2mqtt/Taster03.single" />
+                    <Action Name="Toggle Plug03">
+                        EventGhost.PythonScript(u'eg.globals.mqtt_state_toggle = "{\\"state\\":\\"TOGGLE\\"}"\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Plug03/set\', u\'{eg.globals.mqtt_state_toggle}\', 0, False)')
+                    </Action>
+                </Macro>
+                <Folder Name="RealScheduler" Enabled="False">
+                    <Macro Name="Nachts-Ein" Expanded="True">
+                        <Event Name="RS.Luftbefeuchter-Schlafzimmer[20:15]" />
+                        <Event Name="RS.Luftbefeuchter-Schlafzimmer[23:45]" />
+                        <Event Name="RS.Luftbefeuchter-Schlafzimmer[0:15]" />
+                        <Event Name="RS.Luftbefeuchter-Schlafzimmer[0:45]" />
+                        <Event Name="RS.Luftbefeuchter-Schlafzimmer[1:15]" />
+                        <Action Name="On Plug03">
+                            EventGhost.PythonScript(u'eg.globals.mqtt_state_toggle = "{\\"state\\":\\"ON\\"}"\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Plug03/set\', u\'{eg.globals.mqtt_state_toggle}\', 0, False)')
+                        </Action>
+                    </Macro>
+                </Folder>
+            </Folder>
+            <Folder Name="KlimaanlageSchlafzimmer (Zigbee)" Expanded="True">
+                <Macro Name="Zigbee-Button AUS" Expanded="True">
+                    <Event Name="MQTT.zigbee2mqtt/Taster03.single" />
+                    <Action>
+                        HTTPRelay.sendGETRequest(u'http', u'192.168.1.122', 80, u'/aircon/set_control_info?pow=0&amp;mode=3&amp;stemp=22&amp;shum=0&amp;f_rate=B&amp;f_dir=0', False)
+                    </Action>
+                </Macro>
+            </Folder>
+        </Folder>
+        <Folder Name="Aussen">
+            <Macro Name="Einfahrtstor" id="201" Expanded="True">
+                <Event Name="HTTP.Tor-Toggle" />
+                <Action>
+                    HTTPRelay.sendPOSTRequestWithBody(u'https', u'api.pushback.io', 443, u'/v1/send_sync?id=User_637&amp;title=test', u'User-Agent:EventGhost,Authorization:Basic YXRfV0RmaTRyTFE2WHAyZTEzVEVndVF3Zzo=,Content-type:application/x-www-form-urlencoded', u'blah')
+                </Action>
+                <Action>
+                    HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:3', True, 1)
+                </Action>
+            </Macro>
+            <Macro Name="Einfahrtstor-Automatisch" Enabled="False">
+                <Event Name="HTTP.CCU.MEQ0215957:1-STATE:0" />
+                <Action Name="Einfahrtstoraufmachen, wenn zwischen 6 und 9">
+                    EventGhost.PythonScript(u'import datetime\n\ncurrentHour = datetime.datetime.now().hour\nprint "{0}".format(currentHour)\n\nif ((currentHour &gt;= 6) and (currentHour &lt;= 9)):\n    eg.plugins.HMXMLAPI.turnOnOrOffForXXMLRPC(u\'MEQ0687798:3\', True, 1) #Einfahrtstor')
+                </Action>
+            </Macro>
+            <Folder Name="Weg">
+                <Folder Name="Weg-Schalter">
+                    <Macro Name="Weg-Schalter_On" id="210">
+                        <Event Name="MQTT.zigbee2mqtt/Switch04.ON" />
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(245))
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhost.DisableItem(XmlIdLink(210))
+                        </Action>
+                        <Action>
+                            EventGhost.NewJumpIf(XmlIdLink(248), 2, True)
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhost.EnableItem(XmlIdLink(216))
+                        </Action>
+                    </Macro>
+                    <Macro Name="Weg-Schalter_Off" id="216">
+                        <Event Name="MQTT.zigbee2mqtt/Switch04.OFF" />
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(245))
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhost.DisableItem(XmlIdLink(216))
+                        </Action>
+                        <Action>
+                            EventGhost.NewJumpIf(XmlIdLink(244), 2, True)
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhost.EnableItem(XmlIdLink(210))
+                        </Action>
+                    </Macro>
+                </Folder>
+                <Folder Name="Weg-PIR" Expanded="True">
+                    <Macro Name="Weg-Automatisch - PIR" id="223">
+                        <Event Name="MQTT.zigbee2mqtt/Pir01.On" />
+                        <Action>
+                            EventGhost.NewJumpIf(XmlIdLink(226), 2, True)
+                        </Action>
+                    </Macro>
+                    <Macro Name="Weg-Automatisch" id="226">
+                        <Event Name="HTTP.CCU.MEQ0046607:7-STATE:1" />
+                        <Event Name="HTTP.CCU.MEQ0046607:7-STATE:0" />
+                        <Event Name="HTTP.CCU.MEQ0046607:5-STATE:1" />
+                        <Event Name="HTTP.CCU.MEQ0046607:5-STATE:0" />
+                        <Action Name="An bei Dunkelheit fuer 3 Minuten" Enabled="False">
+                            EventGhost.PythonScript(u'sunState = eg.plugins.Suntracker.GetSunState()\nif eg.event.string == \'MQTT./ESP_Easy_WFang/Windfang/PIR\':\n    state = eg.event.payload[0]\nelse:\n    state = \'1\'\n    \nif (sunState == False) and (state == \'1\'):\n    eg.plugins.HMXMLAPI.turnOnOrOffForXXMLRPC(u\'MEQ0686879:1\', True, 180)\n    eg.plugins.HMXMLAPI.turnOnOrOffForXXMLRPC(u\'MEQ0686879:2\', True, 180)\n    #eg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.210\', 80, u\'/control?cmd=event,LongPulse=180\', True)\n    #eg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.213\', 80, u\'/control?cmd=event,LongPulse=180\', True)\n    #eg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.214\', 80, u\'/control?cmd=event,LongPulse=180\', True)\n    #eg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.214\', 80, u\'/1?t=180&amp;ts=1\', True)\nelse:\n    print "nicht dunkel genug, oder 2ter PIR"\n')
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhost.PythonCommand(u'eg.globals.mqtt_test_string = "{\\"state\\":\\"OFF\\"}"')
+                        </Action>
+                        <Action Enabled="False">
+                            MQTTthreads.publishMQTT(u'Give this MQTT message a name', u'192.168.1.102', 1883, u'zigbee2mqtt/Switch01/set', u'\\"{\\"state\\":\\"OFF\\"}\\"', 0, False)
+                        </Action>
+                        <Action Enabled="False">
+                            MQTTthreads.publishMQTT(u'Give this MQTT message a name', u'192.168.1.102', 1883, u'zigbee2mqtt/Switch01/set', u'{eg.globals.mqtt_test_string}', 0, False)
+                        </Action>
+                        <Action Name="zigbee2mqtt/Switch01&amp;Switch03/set">
+                            EventGhost.PythonScript(u'from thread import start_new_thread\nimport time\n\neg.globals.mqtt_state_on = "{\\"state\\":\\"ON\\"}"\neg.globals.mqtt_state_off = "{\\"state\\":\\"OFF\\"}"\n        \ndef turn_off():\n    print "wait"\n    time.sleep(3*60)\n    if time.time() &gt; int(eg.globals.pir01_timer_stop):\n        print "turn off Switch01 after 3 minutes"\n        #eg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch01/set\', u\'{eg.globals.mqtt_state_off}\', 0, False)\n        #eg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch02/set\', u\'{eg.globals.mqtt_state_off}\', 0, False)\n        #eg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch03/set\', u\'{eg.globals.mqtt_state_off}\', 0, False)\n        eg.plugins.EventGhost.TriggerEvent(u\'HTTP.PIR.weg:aus\', 0.0)\n    else:\n        print "Aussen: noch nicht abschalten (retrigger in der zwischenzeit)"\n        \n\nsunState = eg.plugins.Suntracker.GetSunState()\nif sunState == False:\n    eg.globals.pir01_timer_stop = time.time() + (3*60-1)\n    eg.plugins.HMXMLAPI.turnOnOrOffXMLRPC(u\'MEQ0686879:1\', True)\n    eg.plugins.HMXMLAPI.turnOnOrOffXMLRPC(u\'MEQ0686879:2\', True)\n    eg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch01/set\', u\'{eg.globals.mqtt_state_on}\', 0, False)\n    eg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch02/set\', u\'{eg.globals.mqtt_state_on}\', 0, False)\n    eg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch03/set\', u\'{eg.globals.mqtt_state_on}\', 0, False)\n    start_new_thread(turn_off,())\nelse:\n    print "nicht dunkel genug"')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Weg-Automatik_Aktivieren" id="236">
+                        <Event Name="HTTP.weg-automatik:1" />
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(226))
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.weg_automatik="true"')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Weg-Automatik_Deaktivieren" id="240">
+                        <Event Name="HTTP.weg-automatik:0" />
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(226))
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.weg_automatik="false"')
+                        </Action>
+                    </Macro>
+                </Folder>
+                <Macro Name="Weg-Aus" id="244">
+                    <Event Name="HTTP.PIR.weg:aus" id="245" />
+                    <Event Name="HTTP.weg:aus" />
+                    <Action Name="Weg-Aus">
+                        EventGhost.PythonScript(u'eg.globals.mqtt_state_off = "{\\"state\\":\\"OFF\\"}"\n        \neg.plugins.HMXMLAPI.turnOnOrOffXMLRPC(u\'MEQ0686879:1\', False,)\neg.plugins.HMXMLAPI.turnOnOrOffXMLRPC(u\'MEQ0686879:2\', False)\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch01/set\', u\'{eg.globals.mqtt_state_off}\', 0, False)\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch02/set\', u\'{eg.globals.mqtt_state_off}\', 0, False)\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch03/set\', u\'{eg.globals.mqtt_state_off}\', 0, False)')
+                    </Action>
+                </Macro>
+                <Macro Name="Weg-Ein" id="248">
+                    <Event Name="HTTP.weg:ein" />
+                    <Action Name="Weg-Ein">
+                        EventGhost.PythonScript(u'eg.globals.mqtt_state_on = "{\\"state\\":\\"ON\\"}"\n\neg.plugins.HMXMLAPI.setValueXMLRPC(u\'MEQ0686879:1\', True)\neg.plugins.HMXMLAPI.setValueXMLRPC(u\'MEQ0686879:2\', True)\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch01/set\', u\'{eg.globals.mqtt_state_on}\', 0, False)\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch02/set\', u\'{eg.globals.mqtt_state_on}\', 0, False)\neg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/Switch03/set\', u\'{eg.globals.mqtt_state_on}\', 0, False)\n')
+                    </Action>
+                </Macro>
+            </Folder>
+        </Folder>
+        <Folder Name="Gartenbeweasserung">
+            <Macro Name="Gartenbeweasserung-Ventil" id="252">
+                <Event Name="Scheduler.Gartenbewaesserung.Ventil.ON" Enabled="False" />
+                <Action Enabled="False">
+                    HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:2', True, 14400)
+                </Action>
+                <Action Enabled="False">
+                    EventGhost.NewJumpIf(XmlIdLink(262), 2, True)
+                </Action>
+            </Macro>
+            <Macro Name="Enable: Gartenbeweasserung-Ventil">
+                <Event Name="HTTP.Gartenbewaesserung-Ein" />
+                <Action>
+                    EventGhost.EnableItem(XmlIdLink(252))
+                </Action>
+                <Action>
+                    EventGhost.EnableItem(XmlIdLink(293))
+                </Action>
+                <Action>
+                    EventGhost.EnableItem(XmlIdLink(279))
+                </Action>
+                <Action>
+                    EventGhost.PythonCommand(u'eg.globals.gartenbewaesserung="true"')
+                </Action>
+            </Macro>
+            <Macro Name="Disable: Gartenbeweasserung-Ventil" id="262">
+                <Event Name="HTTP.Gartenbewaesserung-Aus" />
+                <Action>
+                    EventGhost.DisableItem(XmlIdLink(279))
+                </Action>
+                <Action>
+                    EventGhost.DisableItem(XmlIdLink(293))
+                </Action>
+                <Action>
+                    EventGhost.PythonCommand(u'eg.globals.gartenbewaesserung="false"')
+                </Action>
+            </Macro>
+            <Macro Name="Zisterne Nachfuellen" Enabled="False">
+                <Event Name="HTTP.CCU.MEQ0046607:1-STATE:1" />
+                <Action Name="Sollte nur triggern, wenn das Ventil nicht eh schon offen ist" Enabled="False">
+                    EventGhost.PythonCommand(u'Sollte nur triggern, wenn das Ventil nicht eh schon offen ist')
+                </Action>
+                <Action>
+                    HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:1', True, 1200)
+                </Action>
+            </Macro>
+            <Macro Name="Zisterne Nachfuellen - STOP" id="271">
+                <Event Name="HTTP.CCU.MEQ0046607:2-STATE:0" Enabled="False" />
+                <Event Name="HTTP.CCU.MEQ0046607:3-STATE:0" />
+                <Action>
+                    HMXMLAPI.turnOnOrOffXMLRPC(u'MEQ0687798:1', False)
+                </Action>
+            </Macro>
+            <Macro Name="Zisterne-PreFill" Enabled="False" Expanded="True">
+                <Action Enabled="False">
+                    EventGhost.PythonCommand(u'Darf eigentlich nur dann laufen, wenn stufe 2 und 3 leer sind! -&gt; zuerst abfragen?')
+                </Action>
+                <Action Enabled="False">
+                    HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:1', True, 1200)
+                </Action>
+                <Action Name="Zisterne PreFill">
+                    EventGhost.PythonScript(u'zisterneMittel = eg.plugins.HMXMLAPI.getValueXMLRPC(u\'MEQ0046607:2\')\nzisterneHoch = eg.plugins.HMXMLAPI.getValueXMLRPC(u\'MEQ0046607:3\')\n\nif zisterneMittel == "true" and zisterneHoch == "true":\n    print "Zisterne vorfuellen START!"\n    eg.plugins.HMXMLAPI.turnOnOrOffForXXMLRPC(u\'MEQ0687798:1\', True, 900)\nelse:\n    print "Zisterne vorfuellen nicht notwendig!"')
+                </Action>
+            </Macro>
+            <Macro Name="Zisterne-PreFill-NEU" id="279" Enabled="False">
+                <Event Name="RS.Gartenbewaesserung[21:25]" />
+                <Action>
+                    HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:1', True, 3600)
+                </Action>
+            </Macro>
+            <Folder Name="Ventile" Expanded="True">
+                <Macro Name="Ventil_Zeiten_Default" id="283" Enabled="False">
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.ventil_kreis_1 = 55')
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.ventil_kreis_2 = 65')
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.ventil_kreis_3 = 45')
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.ventil_kreis_4 = 35')
+                    </Action>
+                </Macro>
+                <Macro Name="Ventil_Zeiten_Default - TEMP">
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.ventil_kreis_1 = 20')
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.ventil_kreis_2 = 30')
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.ventil_kreis_3 = 20')
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.ventil_kreis_4 = 20')
+                    </Action>
+                </Macro>
+                <Macro Name="Ventil_Kreis_1" id="293" Enabled="False">
+                    <Event Name="RS.Gartenbewaesserung[22:25]" Enabled="False" />
+                    <Event Name="HTTP.Gartenbewaesserung-Jetzt" />
+                    <Action>
+                        HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:1', True, 900)
+                    </Action>
+                    <Action Name="Ventil_Kreis_1 oeffnen">
+                        EventGhost.PythonScript(u"eg.plugins.HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:2', True, eg.globals.ventil_kreis_1 * 60)")
+                    </Action>
+                    <Action Name="Trigger Ventil_Kreis_2 nach XX Minuten">
+                        EventGhost.PythonScript(u'from thread import start_new_thread\nimport time\n\ndef trigger_next(time_to_trigger_next):\n    time.sleep(time_to_trigger_next * 60)\n    eg.TriggerEvent("Ventil_Kreis_2")\n\nstart_new_thread(trigger_next,(eg.globals.ventil_kreis_1 + 10,))')
+                    </Action>
+                    <Action>
+                        EventGhost.DisableItem(XmlIdLink(279))
+                    </Action>
+                </Macro>
+                <Macro Name="Ventil_Kreis_2">
+                    <Event Name="Main.Ventil_Kreis_2" />
+                    <Action>
+                        HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:1', True, 900)
+                    </Action>
+                    <Action Name="Ventil_Kreis_2 oeffnen">
+                        EventGhost.PythonScript(u"eg.plugins.HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:2', True, eg.globals.ventil_kreis_2 * 60)")
+                    </Action>
+                    <Action Name="Trigger Ventil_Kreis_3 nach XX Minuten">
+                        EventGhost.PythonScript(u'from thread import start_new_thread\nimport time\n\ndef trigger_next(time_to_trigger_next):\n    time.sleep(time_to_trigger_next * 60)\n    eg.TriggerEvent("Ventil_Kreis_3")\n\nstart_new_thread(trigger_next,(eg.globals.ventil_kreis_2 + 10,))')
+                    </Action>
+                </Macro>
+                <Macro Name="Ventil_Kreis_3">
+                    <Event Name="Main.Ventil_Kreis_3" />
+                    <Action>
+                        HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:1', True, 900)
+                    </Action>
+                    <Action Name="Ventil_Kreis_3 oeffnen">
+                        EventGhost.PythonScript(u"eg.plugins.HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:2', True, eg.globals.ventil_kreis_3 * 60)")
+                    </Action>
+                    <Action Name="Trigger Ventil_Kreis_4 nach XX Minuten">
+                        EventGhost.PythonScript(u'from thread import start_new_thread\nimport time\n\ndef trigger_next(time_to_trigger_next):\n    time.sleep(time_to_trigger_next * 60)\n    eg.TriggerEvent("Ventil_Kreis_4")\n    \nstart_new_thread(trigger_next,(eg.globals.ventil_kreis_3 + 10,))')
+                    </Action>
+                </Macro>
+                <Macro Name="Ventil_Kreis_4">
+                    <Event Name="Main.Ventil_Kreis_4" />
+                    <Action>
+                        HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:1', True, 900)
+                    </Action>
+                    <Action Name="Ventil_Kreis_4 oeffnen">
+                        EventGhost.PythonScript(u"eg.plugins.HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0687798:2', True, eg.globals.ventil_kreis_4 * 60)")
+                    </Action>
+                    <Action Name="Trigger Ventil_Ende nach XX Minuten">
+                        EventGhost.PythonScript(u'from thread import start_new_thread\nimport time\n\ndef trigger_next(time_to_trigger_next):\n    time.sleep(time_to_trigger_next * 60)\n    eg.TriggerEvent("Ventil_Ende")\n    \nstart_new_thread(trigger_next,(eg.globals.ventil_kreis_4 + 5,))')
+                    </Action>
+                </Macro>
+                <Macro Name="Ventil_Ende">
+                    <Event Name="Main.Ventil_Ende" />
+                    <Action Enabled="False">
+                        EventGhost.NewJumpIf(XmlIdLink(262), 2, True)
+                    </Action>
+                    <Action>
+                        EventGhost.NewJumpIf(XmlIdLink(271), 2, True)
+                    </Action>
+                    <Action>
+                        EventGhost.DisableItem(XmlIdLink(279))
+                    </Action>
+                </Macro>
+            </Folder>
+        </Folder>
+        <Folder Name="RealScheduler" Expanded="True">
+            <Folder Name="Rollos" Expanded="True">
+                <Folder Name="Modus" Enabled="False">
+                    <Macro Name="Rollo Modus Defaults" id="323">
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.rollo_terasse_modus = "auto"')
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.rollo_schlafzimmer_modus = "manual"')
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.rollo_kinderzimmer_modus = "auto"')
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.rollo_kueche_modus = "auto"')
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.rollo_zeugzimmer_modus = "auto"')
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.rollo_esszimmer_modus = "auto"')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Rollo Modus setzen">
+                        <Event Name="HTTP.rollo_schlafzimmer_modus" />
+                        <Event Name="HTTP.rollo_kinderzimmer_modus" />
+                        <Event Name="HTTP.rollo_kueche_modus" />
+                        <Event Name="HTTP.rollo_esszimmer_modus" />
+                        <Event Name="HTTP.rollo_terasse_modus" />
+                        <Event Name="HTTP.rollo_zeugzimmer_modus" Enabled="False" />
+                        <Action Name="Variable setzen">
+                            EventGhost.PythonScript(u'varName = eg.event.string.split(".")[1]\n\nprint varName\nprint \'eg.globals.{0}="{1}"\'.format(varName, eg.event.payload[0])\n\nexec(\'eg.globals.{0}="{1}"\'.format(varName, eg.event.payload[0]))')
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhost.PythonScript(u'def set_rollo_actions(ups, downs):\n    # enable everything\n    for up in ups:\n        eg.plugins.EventGhost.EnableItem(XmlIdLink(up))\n    for down in downs:\n        eg.plugins.EventGhost.EnableItem(XmlIdLink(down))\n    \n    if ("up" in rollo): #disable downs\n        for down in downs:\n            eg.plugins.EventGhost.DisableItem(XmlIdLink(down))\n    elif ("down" in rollo): #disable ups\n        for up in ups:\n            eg.plugins.EventGhost.DisableItem(XmlIdLink(up))\n    elif ("manual" in rollo): #disable everything\n        for down in downs:\n            eg.plugins.EventGhost.DisableItem(XmlIdLink(down))\n        for up in ups:\n            eg.plugins.EventGhost.DisableItem(XmlIdLink(up))\n        \n    \n\nrollo = eg.event.string.split(".")[1]\n\nif ("schlafzimmer" in rollo):\n    #set_rollo_actions([354, 364], [349, 359])\n    \n    eg.plugins.EventGhost.EnableItem(XmlIdLink(349)) #Nachts\n    eg.plugins.EventGhost.EnableItem(XmlIdLink(354)) #Morgens\n    eg.plugins.EventGhost.EnableItem(XmlIdLink(359)) #Tagsueber\n    eg.plugins.EventGhost.EnableItem(XmlIdLink(364)) #Abends\n    ')
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhost.DisableItem(XmlIdLink(347))
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhostUtils.DisableTreeItem(u'400')
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhostUtils.EnableTreeItem(u'349,359')
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhost.PythonScript(u'def set_rollo_actions(modus, ups, downs):\n    print modus\n    eg.plugins.EventGhostUtils.EnableTreeItem(ups)\n    eg.plugins.EventGhostUtils.EnableTreeItem(downs)\n    \n    if ("up" in modus): #disable downs\n        print "do up"\n        eg.plugins.EventGhostUtils.DisableTreeItem(downs)\n    elif ("down" in modus): #disable ups\n        print "do down"\n        eg.plugins.EventGhostUtils.DisableTreeItem(ups)\n    elif ("manual" in modus): #disable everything\n        print "do manual"\n        eg.plugins.EventGhostUtils.DisableTreeItem(downs)\n        eg.plugins.EventGhostUtils.DisableTreeItem(ups)\n        \n    \n\nrollo = eg.event.string.split(".")[1]\nprint rollo\nif ("schlafzimmer" in rollo):\n    set_rollo_actions(eg.event.payload[0], \'319,325,359,365\', \'316,322,356,362\')\nelif ("kinderzimmer" in rollo):\n    set_rollo_actions(eg.event.payload[0], \'332,338,372,378\', \'329,335,356,362\')\nelif ("zeugzimmer" in rollo):\n    set_rollo_actions(eg.event.payload[0], \'345,351,385,391\', \'342,348,382,388\')\n    ')
+                        </Action>
+                    </Macro>
+                </Folder>
+                <Folder Name="Automatik" id="343">
+                    <Folder Name="Winter" Expanded="True">
+                        <Folder Name="Rollo-Unten (Wochentag)" id="345" Expanded="True">
+                            <Folder Name="Schlafzimmer">
+                                <Macro Name="Nachts" id="347">
+                                    <Event Name="RS.Rollo-Zimmer[22:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028934:1', u'LEVEL', u'0', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Morgens">
+                                    <Event Name="RS.Rollo-Zimmer[5:45]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028934:1', u'LEVEL', u'0.5', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Tagsueber" Enabled="False">
+                                    <Event Name="RS.Rollo-Zimmer[8:30]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028934:1', u'LEVEL', u'0.4', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Abends">
+                                    <Event Name="RS.Rollo-Zimmer[17:45]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028934:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                            </Folder>
+                            <Folder Name="Kinderzimmer">
+                                <Macro Name="Nachts">
+                                    <Event Name="RS.Rollo-Zimmer[19:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ0053766:1', u'LEVEL', u'0', False)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Morgens" Enabled="False">
+                                    <Event Name="RS.Rollo-Zimmer[6:35]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ0053766:1', u'LEVEL', u'1', False)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Tagsueber">
+                                    <Event Name="RS.Rollo-Zimmer[8:45]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ0053766:1', u'LEVEL', u'0.5', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Abends" Enabled="False">
+                                    <Event Name="RS.Rollo-Zimmer[17:45]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ0053766:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                            </Folder>
+                            <Folder Name="Zeugzimmer">
+                                <Macro Name="Nachts">
+                                    <Event Name="RS.Rollo-Zimmer[22:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ1767949:1', u'LEVEL', u'0.3', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Morgens">
+                                    <Event Name="RS.Rollo-Zimmer[5:45]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ1767949:1', u'LEVEL', u'0.3', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Vormittag">
+                                    <Event Name="RS.Rollo-Zimmer[8:30]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ1767949:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Tagsueber" Enabled="False">
+                                    <Event Name="RS.Rollo-Zimmer[10:30]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ1767949:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                            </Folder>
+                        </Folder>
+                        <Folder Name="Rollo-Unten (Wochenende)" id="385" Enabled="False">
+                            <Folder Name="Schlafzimmer">
+                                <Macro Name="Nachts">
+                                    <Event Name="RS.Rollo-Zimmer-WE[22:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028934:1', u'LEVEL', u'0', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Morgens">
+                                    <Event Name="RS.Rollo-Zimmer-WE[7:30]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028934:1', u'LEVEL', u'0.3', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Tagsueber" Enabled="False">
+                                    <Event Name="RS.Rollo-Zimmer-WE[10:30]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028934:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Abends">
+                                    <Event Name="RS.Rollo-Zimmer-WE[17:45]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028934:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                            </Folder>
+                            <Folder Name="Kinderzimmer">
+                                <Macro Name="Nachts" Enabled="False">
+                                    <Event Name="RS.Rollo-Zimmer-WE[19:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ0053766:1', u'LEVEL', u'0.3', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Morgens" Enabled="False">
+                                    <Event Name="RS.Rollo-Zimmer-WE[9:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ0053766:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Tagsueber">
+                                    <Event Name="RS.Rollo-Zimmer-WE[10:30]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ0053766:1', u'LEVEL', u'0.5', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Abends" Enabled="False">
+                                    <Event Name="RS.Rollo-Zimmer-WE[17:45]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ0053766:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                            </Folder>
+                            <Folder Name="Zeugzimmer">
+                                <Macro Name="Nachts">
+                                    <Event Name="RS.Rollo-Zimmer-WE[22:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ1767949:1', u'LEVEL', u'0.3', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Morgens">
+                                    <Event Name="RS.Rollo-Zimmer-WE[7:30]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ1767949:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Tagsueber">
+                                    <Event Name="RS.Rollo-Zimmer-WE[10:30]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028934:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Abends" Enabled="False">
+                                    <Event Name="RS.Rollo-Zimmer-WE[10:45]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'NEQ1767949:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                            </Folder>
+                        </Folder>
+                        <Folder Name="Rollo-Oben">
+                            <Folder Name="Rollo-Terasse" Expanded="True">
+                                <Macro Name="Nachts">
+                                    <Event Name="RS.Rollo-Terasse[23:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'LEVEL', u'0', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Morgens">
+                                    <Event Name="RS.Rollo-Terasse[5:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'LEVEL', u'0.6', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Vormittag" Enabled="False">
+                                    <Event Name="RS.Rollo-Terasse[8:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'LEVEL', u'0.2', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Nachmittags" Enabled="False">
+                                    <Event Name="RS.Rollo-Terasse[13:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                            </Folder>
+                            <Folder Name="Rollo-Essen-Kueche" Expanded="True">
+                                <Macro Name="Nachts">
+                                    <Event Name="RS.Rollo-EssenKueche[23:0]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028098:1', u'LEVEL', u'0.2', True)
+                                    </Action>
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'QEQ1054870:1', u'LEVEL', u'0', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Morgens">
+                                    <Event Name="RS.Rollo-EssenKueche[5:30]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028098:1', u'LEVEL', u'1', False)
+                                    </Action>
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'QEQ1054870:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Tagsueber" Enabled="False">
+                                    <Event Name="RS.Rollo-EssenKueche[12:30]" />
+                                    <Action Enabled="False">
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1032184:1', u'LEVEL', u'0.7', True)
+                                    </Action>
+                                    <Action Enabled="False">
+                                        HMXMLAPI.setDataPointXMLRPC(u'QEQ1054870:1', u'LEVEL', u'0.3', True)
+                                    </Action>
+                                </Macro>
+                                <Macro Name="Abends" Enabled="False">
+                                    <Event Name="RS.Rollo-EssenKueche[18:45]" />
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1032184:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                    <Action>
+                                        HMXMLAPI.setDataPointXMLRPC(u'QEQ1054870:1', u'LEVEL', u'1', True)
+                                    </Action>
+                                </Macro>
+                            </Folder>
+                        </Folder>
+                    </Folder>
+                </Folder>
+                <Folder Name="Umschalten - Wochenende/Wochentag">
+                    <Macro Name="Wochentag">
+                        <Event Name="RS.Wochentag" />
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(345))
+                        </Action>
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(385))
+                        </Action>
+                    </Macro>
+                    <Macro Name="Wochenende">
+                        <Event Name="RS.Wochenende" />
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(385))
+                        </Action>
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(345))
+                        </Action>
+                    </Macro>
+                </Folder>
+                <Folder Name="En/Disable" Expanded="True">
+                    <Macro Name="Enable" id="466">
+                        <Event Name="HTTP.timer-rollo-automatik:1" />
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.timer_rollo_automatik=True')
+                        </Action>
+                        <Action Name="Enable: Rollos (Scheduler)">
+                            EventGhost.EnableItem(XmlIdLink(343))
+                        </Action>
+                        <Action Name="Enable: Rollo-Terasse (Lumi)" Enabled="False">
+                            EventGhost.EnableItem(XmlIdLink(798))
+                        </Action>
+                        <Action Name="Enable: Rollo-Essen (Lumi)" Enabled="False">
+                            EventGhost.EnableItem(XmlIdLink(837))
+                        </Action>
+                        <Action Name="set lumi_lux_sueden" Enabled="False">
+                            EventGhost.PythonScript(u'eg.globals.lumi_lux_sueden = 0\neg.globals.lumi_lux_sueden_threshold = {u\'dark\': 0, u\'medium\': 0, u\'bright\': 0}\neg.globals.lumi_luxMax_sueden = 0\neg.globals.lumi_luxMaxTS_sueden = ""')
+                        </Action>
+                        <Action Name="set lumi_lux_osten" Enabled="False">
+                            EventGhost.PythonScript(u'eg.globals.lumi_lux_osten = 0\neg.globals.lumi_lux_osten_threshold = {u\'dark\': 0, u\'medium\': 0, u\'bright\': 0}\neg.globals.lumi_luxMax_osten = 0\neg.globals.lumi_luxMaxTS_osten = ""')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Disable" id="474">
+                        <Event Name="HTTP.timer-rollo-automatik:0" />
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.timer_rollo_automatik=False')
+                        </Action>
+                        <Action Name="Disable: Rollos (Scheduler)">
+                            EventGhost.DisableItem(XmlIdLink(343))
+                        </Action>
+                        <Action Name="Disable: Rollo-Terasse (Lumi)" Enabled="False">
+                            EventGhost.DisableItem(XmlIdLink(798))
+                        </Action>
+                        <Action Name="Disable: Rollo-Essen (Lumi)" Enabled="False">
+                            EventGhost.DisableItem(XmlIdLink(837))
+                        </Action>
+                    </Macro>
+                    <Macro Name="Enable bei Alarmanlage Aus">
+                        <Event Name="HTTP.CCU.MEQ0215957:1-STATE:1" />
+                        <Action>
+                            EventGhost.NewJumpIf(XmlIdLink(466), 2, True)
+                        </Action>
+                    </Macro>
+                    <Macro Name="Disable bei Alarmanlage Ein">
+                        <Event Name="HTTP.CCU.MEQ0215957:1-STATE:0" />
+                        <Action>
+                            EventGhost.NewJumpIf(XmlIdLink(474), 2, True)
+                        </Action>
+                    </Macro>
+                    <Macro Name="Enable  jeden morgen">
+                        <Event Name="RS.Rollos-Alarmanlage-Aktivieren[5:15]" />
+                        <Action>
+                            EventGhost.NewJumpIf(XmlIdLink(466), 2, True)
+                        </Action>
+                    </Macro>
+                </Folder>
+            </Folder>
+        </Folder>
+        <Folder Name="Auswertung" Expanded="True">
+            <Macro Name="HTTP Relay: /auswertung/sum/tag">
+                <Event Name="HTTP.auswertung=sum_tag" />
+                <Action>
+                    HTTPRelay.sendGETRequest(u'http', u'192.168.1.102', 8000, u'/auswertung/sum/tag', False)
+                </Action>
+            </Macro>
+            <Macro Name="HTTP Relay: /auswertung/sum/monat">
+                <Event Name="HTTP.auswertung=sum_monat" />
+                <Action>
+                    HTTPRelay.sendGETRequest(u'http', u'192.168.1.102', 8000, u'/auswertung/sum/monat', False)
+                </Action>
+            </Macro>
+            <Macro Name="HTTP Relay: /auswertung/avg/monat">
+                <Event Name="HTTP.auswertung=avg_monat" />
+                <Action>
+                    HTTPRelay.sendGETRequest(u'http', u'192.168.1.102', 8000, u'/auswertung/avg/monat', False)
+                </Action>
+            </Macro>
+            <Macro Name="HTTP Relay: /auswertung/regen/tag">
+                <Event Name="HTTP.auswertung=regen_tag" />
+                <Action>
+                    HTTPRelay.sendGETRequest(u'http', u'192.168.1.102', 8000, u'/auswertung/regen/tag', False)
+                </Action>
+            </Macro>
+            <Macro Name="HTTP Relay: /auswertung/strom/monat">
+                <Event Name="HTTP.auswertung=strom_monat" />
+                <Action>
+                    HTTPRelay.sendGETRequest(u'http', u'192.168.1.102', 8000, u'/auswertung/strom/monat', False)
+                </Action>
+            </Macro>
+            <Macro Name="HTTP Relay: /auswertung/sum/jahr?aktor=zisternezulauf" id="505" Enabled="False">
+                <Event Name="HTTP.CCU2statelist" />
+                <Action>
+                    HTTPRelay.sendGETRequest(u'http', u'192.168.1.102', 8000, u'/auswertung/sum/jahr?aktor=MEQ0687798:1', False)
+                </Action>
+                <Action Name="Dauer auslesen und in eg.globals.zisternezulauf_dauer speichern">
+                    EventGhost.PythonScript(u'import json\n\njsonResponse = json.loads(eg.globals.httprelayresponse)\ndauer = jsonResponse["datasets"][0]["data"]\nprint dauer\neg.globals.zisternezulauf_dauer = dauer\n')
+                </Action>
+                <Action>
+                    EventGhost.DisableItem(XmlIdLink(505))
+                </Action>
+                <Action Name="Enable: HTTP Relay: /auswertung/sum/jahr?aktor=zisternezulauf (in 60s)">
+                    EventGhost.PythonScript(u"from thread import start_new_thread\nimport time\n\ndef enable_action(time_to_wait):\n    time.sleep(time_to_wait)\n    eg.plugins.EventGhostUtils.EnableTreeItem(u'539')")
+                </Action>
+            </Macro>
+            <Macro Name="HTTP Relay: Verkehr" Enabled="False">
+                <Event Name="HTTP.verkehr" />
+                <Action Enabled="False">
+                    EventGhost.PythonCommand("HTTPRelay.sendRequest(u'http', u'www.oeamtc.at', 80, u'/verkehrsservice/output/html/oesterreich_verkehr.html')")
+                </Action>
+                <Action>
+                    HTTPRelay.sendGETRequest(u'http', u'www.oeamtc.at', 80, u'/verkehrsservice/output/html/oesterreich_verkehr.html')
+                </Action>
+            </Macro>
+            <Macro Name="Regenstand abrufen" id="515" Enabled="False">
+                <Event Name="HTTP.CCU2statelist" />
+                <Action>
+                    Netatmo.getValue(u'05:00:00:0a:0f:00', u'sum_rain_24')
+                </Action>
+                <Action>
+                    EventGhost.PythonCommand(u'eg.globals.regenstand_heute = str(eg.result)')
+                </Action>
+                <Action>
+                    EventGhost.DisableItem(XmlIdLink(515))
+                </Action>
+                <Action Name="Enable: Regenstand abrufen (in 60s)">
+                    EventGhost.PythonScript(u"from thread import start_new_thread\nimport time\n\ndef enable_action(time_to_wait):\n    time.sleep(time_to_wait)\n    eg.plugins.EventGhostUtils.EnableTreeItem(u'430')\n\nstart_new_thread(enable_action,(60,))")
+                </Action>
+                <Action Enabled="False">
+                    EventGhost.EnableItem(XmlIdLink(515))
+                </Action>
+            </Macro>
+            <Macro Name="Regenstand speichern" Expanded="True">
+                <Event Name="Scheduler.Rain.Store" Enabled="False" />
+                <Event Name="RS.RegenstandSpeichern[23:49]" />
+                <Action Enabled="False">
+                    Netatmo.getValue(u'05:00:00:0a:0f:00', u'sum_rain_24')
+                </Action>
+                <Action Name="set hassSensorID">
+                    EventGhost.PythonScript(u'eg.globals._hassSensorID = "sensor.netatmo_regenmesser_rain_today"')
+                </Action>
+                <Action>
+                    EventGhost.NewJumpIf(XmlIdLink(918), 2, True)
+                </Action>
+                <Action Name="Regenstand an CCUEventhandler schicken">
+                    EventGhost.PythonScript(u'eg.plugins.HTTPRelay.sendPOSTRequestWithBody(u\'http\', u\'192.168.1.102\', 8000, u\'/ccuevent\', u\'Content-type:text/xml\', u\'&lt;?xml version="1.0"?&gt;&lt;methodCall&gt;&lt;methodName&gt;event&lt;/methodName&gt;&lt;params&gt;&lt;param&gt;&lt;value&gt;&lt;string&gt;123456&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;&lt;param&gt;&lt;value&gt;&lt;string&gt;Regen&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;&lt;param&gt;&lt;value&gt;&lt;string&gt;VALUE&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;&lt;param&gt;&lt;value&gt;&lt;i4&gt;\' + str(eg.globals._hassSensorState) + \'&lt;/i4&gt;&lt;/value&gt;&lt;/param&gt;&lt;/params&gt;&lt;/methodCall&gt;\')')
+                </Action>
+            </Macro>
+            <Macro Name="Strom speichern (MANUELL)">
+                <Action Name="Stromstand an CCUEventhandler schicken">
+                    EventGhost.PythonScript(u'\n\n#01.01. 57395 -- 1399\n#11.02. 58894 -- 931 -&gt; 01. 58794 -- 1031\n#?01.03 59825 -- 961\n#01.04. 60786 -- 713 -&gt; 697\n#07.05. 61499 -- 484 -&gt; 01. 61483 -- 500\n#04.06. 61983 -- 486\n#01.07. 62469 -- 605\n#?01.08 63074 -- 605\n#05.09. 63678 -- 584\n#03.10. 64262 -- 677\n#01.11. 64939 -- 1018\n#02.12. 65957 -- 1190\n#02.01. 67147 -- 1226\n#01.02. 68373 -- 997\n#03.03. 69370 -- 835\n#02.04. 70206\n#...\n#01.12. 75474 -- 1123\n#----\n#01.01. 76597 -- 1328\n#03.02. 77925 \n\naktor = "Strom%2020"\nzaehlerstand = "76597"\ndifferenz = "1328"\ntag = "2020-01-01"\nwoche = "01"\nmonat = "01%20Jaenner"\njahr = "2020"\n\nquery = "aktor={0}&amp;datenpunkt={1}&amp;wert={2}&amp;dauer={3}&amp;tag={4}&amp;woche={5}&amp;monat={6}&amp;jahr={7}".format(aktor, \'VALUE\', zaehlerstand, differenz, tag, woche, monat, jahr)\nprint query\n\neg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.102\', 8000, u\'/storeEvent?\' + query, False)\n#eg.plugins.HTTPRelay.sendPOSTRequestWithBody(u\'http\', u\'192.168.1.102\', 8000, u\'/ccuevent\', u\'Content-type:text/xml\', u\'&lt;?xml version="1.0"?&gt;&lt;methodCall&gt;&lt;methodName&gt;event&lt;/methodName&gt;&lt;params&gt;&lt;param&gt;&lt;value&gt;&lt;string&gt;123456&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;&lt;param&gt;&lt;value&gt;&lt;string&gt;Strom&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;&lt;param&gt;&lt;value&gt;&lt;string&gt;VALUE&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;&lt;param&gt;&lt;value&gt;&lt;i4&gt;\' + zaehlerstand + \'&lt;/i4&gt;&lt;/value&gt;&lt;/param&gt;&lt;/params&gt;&lt;/methodCall&gt;\'')
+                </Action>
+                <Action Enabled="False">
+                    HTTPRelay.sendGETRequest(u'http', u'192.168.1.102', 8000, u'', False)
+                </Action>
+            </Macro>
+            <Macro Name="ELGRIS Total">
+                <Event Name="HTTP.CCU2statelist" />
+                <Action>
+                    HTTPRelay.sendGETRequest(u'http', u'192.168.1.60', 80, u'/Meter', False)
+                </Action>
+                <Action Name="Extract Total W">
+                    EventGhost.PythonScript(u"import re\n\neg.globals._total_watt = re.search('Total = (\\d+)', eg.globals.httprelayresponse).group(1)\nprint eg.globals._total_watt")
+                </Action>
+            </Macro>
+            <Macro Name="ZisterneZulauf-EIN" Enabled="False">
+                <Event Name="HTTP.CCU.MEQ0687798:1-STATE:1" />
+                <Action>
+                    HTTPRelay.sendPOSTRequestWithBody(u'http', u'192.168.1.102', 8000, u'/ccuevent', u'Content-type:text/xml', u'&lt;?xml version="1.0"?&gt;\n&lt;methodCall&gt;\n    &lt;methodName&gt;event&lt;/methodName&gt;\n    &lt;params&gt;\n        &lt;param&gt;&lt;value&gt;&lt;string&gt;123456&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;\n        &lt;param&gt;&lt;value&gt;&lt;string&gt;Zisterne Zulauf&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;\n        &lt;param&gt;&lt;value&gt;&lt;string&gt;STATE&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;\n        &lt;param&gt;&lt;value&gt;&lt;boolean&gt;1&lt;/boolean&gt;&lt;/value&gt;&lt;/param&gt;\n    &lt;/params&gt;\n&lt;/methodCall&gt;')
+                </Action>
+            </Macro>
+            <Macro Name="ZisterneZulauf-AUS" Enabled="False">
+                <Event Name="HTTP.CCU.MEQ0687798:1-STATE:0" />
+                <Action>
+                    HTTPRelay.sendPOSTRequestWithBody(u'http', u'192.168.1.102', 8000, u'/ccuevent', u'Content-type:text/xml', u'&lt;?xml version="1.0"?&gt;\n&lt;methodCall&gt;\n    &lt;methodName&gt;event&lt;/methodName&gt;\n    &lt;params&gt;\n        &lt;param&gt;&lt;value&gt;&lt;string&gt;123456&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;\n        &lt;param&gt;&lt;value&gt;&lt;string&gt;Zisterne Zulauf&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;\n        &lt;param&gt;&lt;value&gt;&lt;string&gt;STATE&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;\n        &lt;param&gt;&lt;value&gt;&lt;boolean&gt;0&lt;/boolean&gt;&lt;/value&gt;&lt;/param&gt;\n    &lt;/params&gt;\n&lt;/methodCall&gt;')
+                </Action>
+            </Macro>
+        </Folder>
+        <Folder Name="Anwesenheit">
+            <Macro Name="Ping: AddHosts" Enabled="False">
+                <Event Name="Ping.AddHosts" />
+                <Action Name="Ping: Add Host: 192.168.1.104 (CCU)" Enabled="False">
+                    PingPlugin.AddHost(u'192.168.1.104', u'CCU2', 200, 600, u'CCU2-online', u'CCU2-offline', 1, 1)
+                </Action>
+                <Action Name="Ping: Add Host: 192.168.1.108 (PiCam1)" Enabled="False">
+                    PingPlugin.AddHost(u'192.168.1.108', u'PiCam1', 200, 600, u'PiCam1-online', u'PiCam1-offline', 1, 3)
+                </Action>
+                <Action Name="Ping: Add Host: 192.168.1.109 (PiCam2)" Enabled="False">
+                    PingPlugin.AddHost(u'192.168.1.109', u'PiCam2', 200, 600, u'PiCam2-online', u'PiCam2-offline', 1, 3)
+                </Action>
+                <Action Name="Ping: Add Host: 192.168.1.112 (Klemensl-iPhone)" Enabled="False">
+                    PingPlugin.AddHost(u'192.168.1.112', u'Klemensl-iPhone', 1000, 60, u'Klemensl-iPhone-online', u'Klemensl-iPhone-offline', 1, 10)
+                </Action>
+                <Action Enabled="False">
+                    PingPlugin.AddHost(u'192.168.1.101', u'SERVER', 200, 10, u'server-off', u'server-on', 1, 1)
+                </Action>
+                <Action Name="Ping: Add Host: 192.168.1.110 (Birgit-iPhone)" Enabled="False">
+                    PingPlugin.AddHost(u'192.168.1.110', u'Birgit-iPhone', 1000, 60, u'Birigtl-iPhone-online', u'Birgit-iPhone-offline', 1, 10)
+                </Action>
+            </Macro>
+            <Macro Name="Haus-leer-bestimmen" id="549" Enabled="False">
+                <Action Name="calculate Haus Verlassen und Ergebnis an CCU senden" Enabled="False">
+                    EventGhost.PythonScript(u'print "Alarm {0}/Klemens Home {1}/Birgit Home {2}".format(eg.globals.alarmanlage, eg.globals.klemensl_home, eg.globals.birgit_home)\n\nif (eg.globals.alarmanlage is False):\n    eg.globals.haus_verlassen = False\n    print "Alarmanlage ist nicht aktiv - es muss also jemand zu Hause sein..."\nelif ((eg.globals.alarmanlage is True) and (eg.globals.klemensl_home is False) and (eg.globals.birgit_home is False)):\n    eg.globals.haus_verlassen = True\n    print "Das Haus ist verlassen und gesichert!"\nelse:\n    eg.globals.haus_verlassen = False\n    print "Jemand ist zu Hause..."\n    \neg.plugins.HMXMLAPI.turnOnOrOff(u\'3126\', eg.globals.haus_verlassen)')
+                </Action>
+            </Macro>
+            <Folder Name="Coming/Leaving" Enabled="False">
+                <Macro Name="klemensl-leaving">
+                    <Event Name="HTTP.Geo.klemensl-leaving" />
+                    <Action Enabled="False">
+                        HMXMLAPI2.sendMessage(u'Klemens ist nicht zu Hause')
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.klemensl_home = False')
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.NewJumpIf(XmlIdLink(549), 2, True)
+                    </Action>
+                </Macro>
+                <Macro Name="klemensl-coming">
+                    <Event Name="HTTP.Geo.klemensl-coming" />
+                    <Action Enabled="False">
+                        HMXMLAPI2.sendMessage(u'Klemens ist wieder zu Hause')
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.klemensl_home = True')
+                    </Action>
+                    <Action Name="eg.globals.klemensl_home_ts = time.time()" Enabled="False">
+                        EventGhost.PythonScript(u'import time\neg.globals.klemensl_home_ts = time.time()')
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.NewJumpIf(XmlIdLink(549), 2, True)
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.EnableItem(XmlIdLink(223))
+                    </Action>
+                    <Action>
+                        EventGhost.NewJumpIf(XmlIdLink(236), 2, True)
+                    </Action>
+                </Macro>
+                <Macro Name="birgit-coming">
+                    <Event Name="HTTP.Geo.birgit-coming" />
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.birgit_home = True')
+                    </Action>
+                    <Action Name="eg.globals.birgit_home_ts = time.time()">
+                        EventGhost.PythonScript(u'import time\neg.globals.birgit_home_ts = time.time()')
+                    </Action>
+                    <Action>
+                        EventGhost.NewJumpIf(XmlIdLink(549), 2, True)
+                    </Action>
+                </Macro>
+                <Macro Name="birgit-leaving">
+                    <Event Name="HTTP.Geo.birgit-leaving" />
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.birgit_home = False')
+                    </Action>
+                    <Action>
+                        EventGhost.NewJumpIf(XmlIdLink(549), 2, True)
+                    </Action>
+                </Macro>
+                <Macro Name="Bewegungsmelder-Haus">
+                    <Event Name="HTTP.CCU.MEQ0669049:3-BRIGHTNESS" Enabled="False" />
+                    <Event Name="HTTP.CCU.MEQ0669124:3-BRIGHTNESS" Enabled="False" />
+                    <Action Name="jemand in den letzten 5 Minuten gekommen und es ist dunkel?">
+                        EventGhost.PythonScript(u'import time\n\nprint "event {0} / event.payload {1}".format(eg.event.string, str(eg.event.payload[0]))\n\nbrightness = float(str(eg.event.payload[0]))\nminBrightness = 115\n\nprint "brightness {0}".format(brightness)\nprint "eg.globals.alarmanlage {0}".format(eg.globals.alarmanlage)\nprint "time {0} / klemensl {1} / birgit {2}".format(time.time(), eg.globals.klemensl_home_ts, eg.globals.birgit_home_ts)\n\nif ((eg.globals.alarmanlage == True) and (minBrightness &lt;= 115)):\n    if (((time.time() - 300) &lt; eg.globals.klemensl_home_ts) or ((time.time() - 300) &lt; eg.globals.birgit_home_ts)):\n        eg.result = True\n    else:\n        eg.result = False')
+                    </Action>
+                    <Action>
+                        EventGhost.NewJumpIf(XmlIdLink(581), 0, True)
+                    </Action>
+                    <Action Name="Weg Beleuchtung einschalten - wenn es dunkel ist und vor 23.59">
+                        EventGhost.PythonScript(u'import datetime\n\nnow = datetime.datetime.now()\nsunState = eg.plugins.Suntracker.GetSunState()\n\nif ((sunState == False) and (now.hour &lt;= 23)): #aktuell nur, wenn sonne nicht scheint und vor 23.59\n    print "lights on"\n    eg.plugins.HMXMLAPI.turnOnOrOffForXXMLRPC(u\'MEQ0674441:1\', True, 180)\nelse:\n    print "lights not on: {0} / {1}".format(sunState, now.hour)')
+                    </Action>
+                    <Action>
+                        HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0674441:1', True, 60)
+                    </Action>
+                </Macro>
+                <Macro Name="actions_when_coming_and_dark" id="581" Enabled="False">
+                    <Action>
+                        HMXMLAPI.turnOnOrOff(u'1271', True)
+                    </Action>
+                    <Action>
+                        HMXMLAPI.turnOnOrOffForXXMLRPC(u'MEQ0674441:1', True, 180)
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Alarmanlage" Expanded="True">
+                <Macro Name="Alarmanlage-Ein">
+                    <Event Name="HTTP.CCU.MEQ0215957:1-STATE:0" />
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.alarmanlage = True')
+                    </Action>
+                    <Action>
+                        EventGhost.NewJumpIf(XmlIdLink(72), 2, True)
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.NewJumpIf(XmlIdLink(601), 2, True)
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.NewJumpIf(XmlIdLink(549), 2, True)
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.NewJumpIf(XmlIdLink(240), 2, True)
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.DisableItem(XmlIdLink(223))
+                    </Action>
+                </Macro>
+                <Macro Name="Alarmanlage-Aus">
+                    <Event Name="HTTP.CCU.MEQ0215957:1-STATE:1" />
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.alarmanlage = False')
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.NewJumpIf(XmlIdLink(604), 2, True)
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.NewJumpIf(XmlIdLink(549), 2, True)
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.NewJumpIf(XmlIdLink(236), 2, True)
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.EnableItem(XmlIdLink(223))
+                    </Action>
+                </Macro>
+                <Folder Name="Rollos Alarmanlage" Expanded="True">
+                    <Macro Name="Rollos-Alle-0_Alarmanlage-Ein" id="601">
+                        <Event Name="HTTP.CCU.MEQ0215957:1-STATE:0" />
+                        <Action>
+                            HMXMLAPI.setDataPointXMLRPC(u'BidCoS-RF:1', u'PRESS_SHORT', u'1', False)
+                        </Action>
+                    </Macro>
+                    <Macro Name="Rollos-Alle-auf_Alarmanlage-Aus" id="604">
+                        <Event Name="HTTP.CCU.MEQ0215957:1-STATE:1" />
+                        <Action Name="Winter: Homematic: setDataPoint PRESS_SHORT of Device-ID BidCoS-RF:16 to 1 (check inhibit: False)">
+                            HMXMLAPI.setDataPointXMLRPC(u'BidCoS-RF:16', u'PRESS_SHORT', u'1', False)
+                        </Action>
+                        <Action Name="Sommer: Homematic: setDataPoint PRESS_SHORT of Device-ID BidCoS-RF:15 to 1 (check inhibit: False)" Enabled="False">
+                            HMXMLAPI.setDataPointXMLRPC(u'BidCoS-RF:15', u'PRESS_SHORT', u'1', False)
+                        </Action>
+                    </Macro>
+                    <Macro Name="Rollos-Alarmanlage_Aktivieren">
+                        <Event Name="HTTP.alarmanlage-rollo-automatik:1" />
+                        <Event Name="RS.Rollos-Alarmanlage-Aktivieren[9:15]" />
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(601))
+                        </Action>
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(604))
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.alarmanlage_rollo_automatik=True')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Rollos-Alarmanlage_Deaktivieren">
+                        <Event Name="HTTP.alarmanlage-rollo-automatik:0" />
+                        <Event Name="RS.Rollos-Alarmanlage-Deaktivieren[21:25]" />
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(601))
+                        </Action>
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(604))
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.alarmanlage_rollo_automatik=False')
+                        </Action>
+                    </Macro>
+                </Folder>
+            </Folder>
+            <Folder Name="GeoFences" Enabled="False">
+                <Folder Name="Klemensl_Kommt" Enabled="False" Expanded="True">
+                    <Macro Name="Schimmergasse53">
+                        <Event Name="HTTP.Geo.klemensl-schimmergasse53-coming" />
+                        <Action Name="eg.globals.klemensl_kommt_ts = time.time()">
+                            EventGhost.PythonScript(u'import time\neg.globals.klemensl_kommt_ts = time.time()')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Schimmergasse57" Expanded="True">
+                        <Event Name="HTTP.Geo.klemensl-schimmergasse57-coming" />
+                        <Action Name="Calculate if door should get opened">
+                            EventGhost.PythonScript(u'import time\n\neinfahrtstorZu = eg.plugins.HMXMLAPI.getDataPointXMLRPC(u\'MEQ0046607:7\', u\'STATE\') == "false"\neingangstorZu  = eg.plugins.HMXMLAPI.getDataPointXMLRPC(u\'MEQ0046607:5\', u\'STATE\') == "false"\n\neg.result = False\nif (einfahrtstorZu and eingangstorZu and (time.time() - eg.globals.klemensl_kommt_ts &lt; 30)):\n    print "Oeffne Einfahrtstor automatisch!"\n    eg.plugins.HTTPRelay.sendPOSTRequestWithBody(u\'http\', u\'new.boxcar.io\', 80, u\'/api/notifications?user_credentials=DTslkREbbnz92NIuvN8p&amp;amp;notification[title]=Oeffne%20Einfahrtstor&amp;amp;notification[source_name]=A87\', u\'\')\n    eg.result = True\nelse:\n    print "{0} / {1} / {2} / {3}".format(einfahrtstorZu, eingangstorZu, time.time(), eg.globals.klemensl_kommt_ts)\n')
+                        </Action>
+                        <Action Enabled="False">
+                            EventGhost.NewJumpIf(XmlIdLink(201), 0, True)
+                        </Action>
+                        <Action>
+                            HTTPRelay.sendPOSTRequestWithBody(u'http', u'new.boxcar.io', 80, u'/api/notifications?user_credentials=DTslkREbbnz92NIuvN8p&amp;notification[title]=OeffneEinfahrtstor&amp;notification[source_name]=A87', u'blah:blub', u'')
+                        </Action>
+                        <Action Enabled="False">
+                            HMXMLAPI.getDataPointXMLRPC(u'MEQ0046607:7', u'STATE')
+                        </Action>
+                    </Macro>
+                </Folder>
+            </Folder>
+        </Folder>
+        <Folder Name="CCU2-Listen Abfrage">
+            <Macro Name="Homematic XML API: CCU2 Call: SysVarList" Expanded="True">
+                <Event Name="HTTP.CCU2sysvarlist" />
+                <Action>
+                    HMXMLAPI.sysvarlist()
+                </Action>
+            </Macro>
+            <Macro Name="Homematic XML API: CCU2 Call: StateList">
+                <Event Name="HTTP.CCU2statelist" />
+                <Action>
+                    HMXMLAPI.statelist()
+                </Action>
+                <Action Enabled="False">
+                    HMXMLAPI.getDataPointXMLRPC(u'MEQ0687798:2', u'WORKING')
+                </Action>
+            </Macro>
+        </Folder>
+        <Folder Name="Test" Enabled="False">
+            <Macro Name="Bewegungsmelder_Boxcar" Enabled="False">
+                <Event Name="HTTP.CCU.MEQ0669049:3-BRIGHTNESS" />
+                <Action>
+                    HTTPRelay.sendPOSTRequestWithBody(u'http', u'new.boxcar.io', 80, u'/api/notifications?user_credentials=DTslkREbbnz92NIuvN8p&amp;notification[title]=Bewegungsmelder&amp;notification[source_name]=A87', u'')
+                </Action>
+            </Macro>
+            <Macro Name="Homematic XML API: getDataPoint STATE of Device-ID MEQ0046607:1">
+                <Action>
+                    HMXMLAPI.getDataPointXMLRPC(u'LEQ1028934:1', u'WORKING')
+                </Action>
+                <Action>
+                    HMXMLAPI.getDataPointXMLRPC(u'MEQ0733239:1', u'INHIBIT')
+                </Action>
+                <Action>
+                    HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'INHIBIT', u'false', False)
+                </Action>
+            </Macro>
+            <Macro Name="Bewegungsmelder_Boxcar_NEU">
+                <Event Name="HTTP.CCU.MEQ0782714:5-STATE:0" />
+                <Action Enabled="False">
+                    HTTPRelay.sendPOSTRequestWithBody(u'http', u'new.boxcar.io', 80, u'/api/notifications?user_credentials=DTslkREbbnz92NIuvN8p&amp;notification[title]=Bewegungsmelder_NEU&amp;notification[source_name]=A87', u'none', u'')
+                </Action>
+            </Macro>
+            <Macro Name="SunTracker: GetSunState">
+                <Action>
+                    Suntracker.GetSunState()
+                </Action>
+                <Action>
+                    EventGhost.DumpResult()
+                </Action>
+            </Macro>
+            <Macro Name="Wake on LAN: 20-C6-EB-C6-56-3B">
+                <Action>
+                    System.WakeOnLan(u'20-C6-EB-C6-56-3B')
+                </Action>
+            </Macro>
+            <Macro Name="Homematic: getDataPoint INHIBIT of Device-ID ">
+                <Action>
+                    HMXMLAPI.getDataPointXMLRPC(u'MEQ0733239:1', u'INHIBIT')
+                </Action>
+            </Macro>
+            <Macro Name="MQTT Client: Start a new MQTT subscription ">
+                <Action Enabled="False">
+                    MQTTthreads.MQTTclient(u'Sonoff Switch Relays', u'192.168.1.101', 1883, u'/test/switch/+/relay/+', False)
+                </Action>
+                <Action>
+                    MQTTthreads.publishMQTT(u'Led ON', u'localhost', 1883, u'cmnd/sonoff_basic_windfang/LedPower', u'On', 0, False)
+                </Action>
+                <Action>
+                    MQTTthreads.publishMQTT(u'Led OFF', u'localhost', 1883, u'cmnd/sonoff_basic_windfang/LedPower', u'Off', 0, False)
+                </Action>
+                <Action>
+                    MQTTthreads.publishMQTT(u'Toggle Relay', u'localhost', 1883, u'cmnd/sonoff_basic_windfang/power', u'toggle', 0, False)
+                </Action>
+                <Action>
+                    MQTTthreads.publishMQTT(u'Backlog', u'localhost', 1883, u'cmnd/sonoff_basic_windfang/backlog', u';', 0, False)
+                </Action>
+            </Macro>
+            <Macro Name="HTTP Relay: Send a GET request to: http://192.168.1.210:80/control?cmd=GPIO,12,1">
+                <Action>
+                    HTTPRelay.sendGETRequest(u'http', u'192.168.1.210', 80, u'/control?cmd=GPIO,12,0')
+                </Action>
+            </Macro>
+            <Folder Name="TCLREGA">
+                <Macro Name="SetSystemVariable">
+                    <Event Name="HTTP.TCLREGA-SetSystemVariable" />
+                    <Action Name="Set SystemVariable">
+                        EventGhost.PythonScript(u'#print eg.event.payload[0]\n#print eg.event.payload[1]\n#print u\'/x.exe?Result=dom.GetObject("\' + eg.event.payload[0] + \'").State("\' + eg.event.payload[1] + \'")\'\n\neg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.104\', 8181, u\'/x.exe?Result=dom.GetObject("\' + eg.event.payload[0] + \'").State("\' + eg.event.payload[1] + \'")\')')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Fernseher">
+                <Macro Name="Ausschalten" Expanded="True">
+                    <Event Name="Alexa.Triggered.Fernseher.TurnOffRequest" />
+                    <Action>
+                        HTTPRelay.sendPOSTRequestWithBody(u'http', u'192.168.1.111', 55000, u'/nrc/control_0/', u'SOAPACTION:"urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"', u'&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"&gt;\n&lt;s:Body&gt;\n&lt;u:X_SendKey xmlns:u="urn:panasonic-com:service:p00NetworkControl:1"&gt;\n&lt;X_KeyEvent&gt;NRC_POWER-ONOFF&lt;/X_KeyEvent&gt;\n&lt;/u:X_SendKey&gt;\n&lt;/s:Body&gt;\n&lt;/s:Envelope&gt;')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="FileWatcher" />
+            <Folder Name="Inhibit">
+                <Macro Name="Kinderzimmer INHIBIT" Enabled="False">
+                    <Action>
+                        HMXMLAPI.setDataPointXMLRPC(u'NEQ0053766:1', u'INHIBIT', u'0', False)
+                    </Action>
+                    <Action>
+                        HMXMLAPI.setDataPointXMLRPC(u'NEQ0053766:1', u'LEVEL', u'0', True)
+                    </Action>
+                </Macro>
+                <Macro Name="Esszimmer INHIBIT" Enabled="False">
+                    <Action>
+                        HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'INHIBIT', u'0', False)
+                    </Action>
+                    <Action>
+                        HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'LEVEL', u'100', True)
+                    </Action>
+                </Macro>
+                <Macro Name="Terasse INHIBIT" Enabled="False" Expanded="True">
+                    <Action>
+                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028098:1', u'INHIBIT', u'0', False)
+                    </Action>
+                    <Action>
+                        HMXMLAPI.setDataPointXMLRPC(u'LEQ1028098:1', u'LEVEL', u'100', True)
+                    </Action>
+                </Macro>
+            </Folder>
+        </Folder>
+        <Folder Name="Klima" Expanded="True">
+            <Folder Name="Schlafzimmer" Expanded="True">
+                <Folder Name="Automatik" id="686" Expanded="True">
+                    <Macro Name="Klima Schlafzimmer Automatik" id="687">
+                        <Event Name="RS.Tick" />
+                        <Action Name="Netatmo: Get 'Temperature' of 'Schlafzimmer'" Enabled="False">
+                            Netatmo.getValue(u'70:ee:50:13:4c:ac', u'Temperature')
+                        </Action>
+                        <Action Name="set hassSensorID">
+                            EventGhost.PythonScript(u'eg.globals._hassSensorID = "sensor.netatmo_schlafzimmer_temperature"')
+                        </Action>
+                        <Action>
+                            EventGhost.NewJumpIf(XmlIdLink(918), 2, True)
+                        </Action>
+                        <Action Name="turn on or off 'Schlafzimmer'">
+                            EventGhost.PythonScript(u'import json\n\n#payloadJson = json.loads(eg.event.payload)\n#temperature = payloadJson["temperature"]\n#temperature = eg.result\ntemperature = eg.globals._hassSensorState\n\nif float(temperature) &gt; float(eg.globals.klima_schlafzimmer_upper):\n    eg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.122\', 80, u\'/aircon/set_control_info?pow=1&amp;mode=3&amp;stemp=23&amp;shum=0&amp;f_rate=B&amp;f_dir=0\', False)\n    print "Schlafzimmer Klima einschalten"\nelif float(temperature) &lt; float(eg.globals.klima_schlafzimmer_lower):\n    eg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.122\', 80, u\'/aircon/set_control_info?pow=0&amp;mode=3&amp;stemp=23&amp;shum=0&amp;f_rate=B&amp;f_dir=0\', False)\n    print "Schlafzimmer Klima ausschalten"\nelse:\n    print "Nichts zu tun bei {0} ({1} - {2})".format(temperature, eg.globals.klima_schlafzimmer_lower, eg.globals.klima_schlafzimmer_upper)\n')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Enable: Klima Schlafzimmer Automatik">
+                        <Event Name="RS.Klima_Schlafzimmer[18:25]" />
+                        <Event Name="RS.Klima_Schlafzimmer[21:25]" />
+                        <Event Name="RS.Klima_Schlafzimmer[1:0]" />
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(687))
+                        </Action>
+                    </Macro>
+                    <Macro Name="Disable: Klima Schlafzimmer Automatik">
+                        <Event Name="RS.Klima_Schlafzimmer[22:25]" />
+                        <Event Name="RS.Klima_Schlafzimmer[5:0]" />
+                        <Action Name="turn off">
+                            EventGhost.PythonScript(u"eg.plugins.HTTPRelay.sendGETRequest(u'http', u'192.168.1.122', 80, u'/aircon/set_control_info?pow=0&amp;mode=3&amp;stemp=22&amp;shum=0&amp;f_rate=B&amp;f_dir=0', False)")
+                        </Action>
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(687))
+                        </Action>
+                    </Macro>
+                </Folder>
+                <Macro Name="Enable: Automatik">
+                    <Event Name="HTTP.klima_automatik_schlafzimmer:1" />
+                    <Action>
+                        EventGhost.EnableItem(XmlIdLink(686))
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.klima_automatik_schlafzimmer=True')
+                    </Action>
+                </Macro>
+                <Macro Name="Disable: Automatik">
+                    <Event Name="HTTP.klima_automatik_schlafzimmer:0" />
+                    <Action>
+                        EventGhost.DisableItem(XmlIdLink(686))
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.klima_automatik_schlafzimmer=False')
+                    </Action>
+                </Macro>
+                <Folder Name="Manuell">
+                    <Macro Name="Einschalten">
+                        <Event Name="HTTP.klima_schlafzimmer_manuell:1" />
+                        <Action>
+                            HTTPRelay.sendGETRequest(u'http', u'192.168.1.122', 80, u'/aircon/set_control_info?pow=1&amp;mode=3&amp;stemp=22&amp;shum=0&amp;f_rate=B&amp;f_dir=0', False)
+                        </Action>
+                    </Macro>
+                    <Macro Name="Ausschalten">
+                        <Event Name="HTTP.klima_schlafzimmer_manuell:0" />
+                        <Action>
+                            HTTPRelay.sendGETRequest(u'http', u'192.168.1.122', 80, u'/aircon/set_control_info?pow=0&amp;mode=3&amp;stemp=22&amp;shum=0&amp;f_rate=B&amp;f_dir=0', False)
+                        </Action>
+                    </Macro>
+                </Folder>
+                <Macro Name="Status abfragen">
+                    <Event Name="HTTP.CCU2statelist" />
+                    <Action>
+                        HTTPRelay.sendGETRequest(u'http', u'192.168.1.122', 80, u'/common/basic_info', False)
+                    </Action>
+                    <Action>
+                        EventGhost.PythonScript(u'eg.globals.klima_schlafzimmer_status = "pow=1" in eg.globals.httprelayresponse')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Kinderzimmer" Expanded="True">
+                <Folder Name="Automatik" id="721" Expanded="True">
+                    <Macro Name="Klima Kinderzimmer Automatik" id="722">
+                        <Event Name="RS.Tick" />
+                        <Action Name="Netatmo: Get 'Temperature' of 'Kinderzimmer'" Enabled="False">
+                            Netatmo.getValue(u'03:00:00:03:1c:5c', u'Temperature')
+                        </Action>
+                        <Action Name="set hassSensorID">
+                            EventGhost.PythonScript(u'eg.globals._hassSensorID = "sensor.netatmo_kinderzimmer_temperature"')
+                        </Action>
+                        <Action>
+                            EventGhost.NewJumpIf(XmlIdLink(918), 2, True)
+                        </Action>
+                        <Action Name="turn on or off 'Kinderzimmer'">
+                            EventGhost.PythonScript(u'import json\n\n#payloadJson = json.loads(eg.event.payload)\n#temperature = payloadJson["temperature"]\n#temperature = eg.result\ntemperature = eg.globals._hassSensorState\n\nif float(temperature) &gt; float(eg.globals.klima_kinderzimmer_upper):\n    eg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.121\', 80, u\'/aircon/set_control_info?pow=1&amp;mode=3&amp;stemp=23&amp;shum=0&amp;f_rate=B&amp;f_dir=0\', False)\n    print "Kinderzimmer Klima einschalten"\nelif float(temperature) &lt; float(eg.globals.klima_kinderzimmer_lower):\n    eg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.121\', 80, u\'/aircon/set_control_info?pow=0&amp;mode=3&amp;stemp=23&amp;shum=0&amp;f_rate=B&amp;f_dir=0\', False)\n    print "Kinderzimmer Klima ausschalten"\nelse:\n    print "Nichts zu tun bei {0} ({1} - {2})".format(temperature, eg.globals.klima_kinderzimmer_lower, eg.globals.klima_kinderzimmer_upper)\n')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Enable: Klima Kinderzimmer Automatik">
+                        <Event Name="RS.Klima_Kinderzimmer[18:25]" />
+                        <Event Name="RS.Klima_Kinderzimmer[20:30]" />
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(722))
+                        </Action>
+                    </Macro>
+                    <Macro Name="Disable: Klima Kinderzimmer Automatik">
+                        <Event Name="RS.Klima_Kinderzimmer[19:15]" />
+                        <Event Name="RS.Klima_Kinderzimmer[5:0]" />
+                        <Action Name="turn off">
+                            EventGhost.PythonScript(u"eg.plugins.HTTPRelay.sendGETRequest(u'http', u'192.168.1.121', 80, u'/aircon/set_control_info?pow=0&amp;mode=3&amp;stemp=22&amp;shum=0&amp;f_rate=B&amp;f_dir=0', False)")
+                        </Action>
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(722))
+                        </Action>
+                    </Macro>
+                </Folder>
+                <Macro Name="Enable: Automatik">
+                    <Event Name="HTTP.klima_automatik_kinderzimmer:1" />
+                    <Action>
+                        EventGhost.EnableItem(XmlIdLink(721))
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.klima_automatik_kinderzimmer=True')
+                    </Action>
+                </Macro>
+                <Macro Name="Disable: Automatik">
+                    <Event Name="HTTP.klima_automatik_kinderzimmer:0" />
+                    <Action>
+                        EventGhost.DisableItem(XmlIdLink(721))
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'eg.globals.klima_automatik_kinderzimmer=False')
+                    </Action>
+                </Macro>
+                <Folder Name="Manuell">
+                    <Macro Name="Einschalten">
+                        <Event Name="HTTP.klima_kinderzimmer_manuell:1" />
+                        <Action>
+                            HTTPRelay.sendGETRequest(u'http', u'192.168.1.121', 80, u'/aircon/set_control_info?pow=1&amp;mode=3&amp;stemp=22&amp;shum=0&amp;f_rate=B&amp;f_dir=0', False)
+                        </Action>
+                    </Macro>
+                    <Macro Name="Ausschalten">
+                        <Event Name="HTTP.klima_kinderzimmer_manuell:0" />
+                        <Action>
+                            HTTPRelay.sendGETRequest(u'http', u'192.168.1.121', 80, u'/aircon/set_control_info?pow=0&amp;mode=3&amp;stemp=22&amp;shum=0&amp;f_rate=B&amp;f_dir=0', False)
+                        </Action>
+                    </Macro>
+                </Folder>
+                <Macro Name="Status abfragen">
+                    <Event Name="HTTP.CCU2statelist" />
+                    <Action>
+                        HTTPRelay.sendGETRequest(u'http', u'192.168.1.121', 80, u'/common/basic_info', False)
+                    </Action>
+                    <Action>
+                        EventGhost.PythonScript(u'eg.globals.klima_kinderzimmer_status = "pow=1" in eg.globals.httprelayresponse')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Wohnzimmer">
+                <Folder Name="Manuell">
+                    <Macro Name="Einschalten">
+                        <Event Name="HTTP.klima_wohnzimmer_manuell:1" />
+                        <Action Enabled="False">
+                            HTTPRelay.sendPOSTRequestWithBody(u'http', u'192.168.1.99', 8000, u'', u'Content-type:text/xml', u'')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Ausschalten">
+                        <Event Name="HTTP.klima_wohnzimmer_manuell:0" />
+                    </Macro>
+                </Folder>
+            </Folder>
+            <Macro Name="getNetatmoSensorState" id="918" Expanded="True">
+                <Action>
+                    EventGhost.PythonScript(u'import httplib\nimport json\n\n# sensor.netatmo_kinderzimmer_temperature\nheaders = {"Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIwMmFmN2Q5YjExYmM0Njc4OGNjZDZjZDkzOGM4YTFhMSIsImlhdCI6MTY5MzE1NTA4NywiZXhwIjoyMDA4NTE1MDg3fQ.Q3iAlZiNdOi0NbI9cRs_MvdxnsieqVNP0tFcIx3FzAM", "Accept": "*/*"}\nconn = httplib.HTTPConnection("192.168.1.64:8123")\nconn.request("GET", "/api/states/" + eg.globals._hassSensorID, None, headers)\nresponse = conn.getresponse()\ndata = response.read()\nconn.close()\nprint data\neg.globals._hassResponse = data\n\n\ndataJson = json.loads(data)\nprint dataJson[\'state\']\neg.globals._hassSensorState = dataJson[\'state\']')
+                </Action>
+            </Macro>
+        </Folder>
+        <Folder Name="Alexa">
+            <Macro Name="Homematic: CCU2 XML-RPC: setStateFromAlexaEvent" Enabled="False">
+                <Event Name="Alexa.Licht_Schalten" Enabled="False" />
+                <Event Name="Alexa.Triggered" Enabled="False" />
+                <Action>
+                    HMXMLAPI.setStateFromAlexaEvent()
+                </Action>
+            </Macro>
+            <Folder Name="CCU">
+                <Macro Name="CCU-TurnOn" Expanded="True">
+                    <Event Name="Alexa.Triggered.homematic.TurnOnRequest" />
+                    <Action>
+                        EventGhost.PythonCommand(u"eg.plugins.HMXMLAPI.setValueXMLRPC(eg.event.payload[1], u'1')")
+                    </Action>
+                </Macro>
+                <Macro Name="CCU-TurnOff" Expanded="True">
+                    <Event Name="Alexa.Triggered.homematic.TurnOffRequest" />
+                    <Action>
+                        EventGhost.PythonCommand(u"eg.plugins.HMXMLAPI.setValueXMLRPC(eg.event.payload[1], u'0')")
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Sonoff">
+                <Macro Name="Sonoff-TurnOn">
+                    <Event Name="Alexa.Triggered.sonoff.TurnOnRequest" />
+                    <Action>
+                        EventGhost.PythonScript(u'device = eg.event.payload[1].split(\':\')[0]\ngpio = eg.event.payload[1].split(\':\')[1]\n\neg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.\' + device, 80, u\'/control?cmd=GPIO,\' + gpio + \',1\', True)\nexec(\'eg.globals._{0}_{1}="{2}"\'.format(device, gpio, \'1\'))')
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.TriggerEvent(u'HTTP.Sonoff', 0.0)
+                    </Action>
+                </Macro>
+                <Macro Name="Sonoff-TurnOff">
+                    <Event Name="Alexa.Triggered.sonoff.TurnOffRequest" />
+                    <Action>
+                        EventGhost.PythonScript(u'device = eg.event.payload[1].split(\':\')[0]\ngpio = eg.event.payload[1].split(\':\')[1]\n\neg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.\' + device, 80, u\'/control?cmd=GPIO,\' + gpio + \',0\', True)\nexec(\'eg.globals._{0}_{1}="{2}"\'.format(device, gpio, \'0\'))')
+                    </Action>
+                </Macro>
+            </Folder>
+        </Folder>
+        <Folder Name="Sonoff">
+            <Macro Name="Sonoff Relay" Expanded="True">
+                <Event Name="HTTP.Sonoff" />
+                <Action>
+                    EventGhost.PythonScript(u'#varName = eg.event.payload[1]\n#print varName\n\n#print varName\n#print \'eg.globals.{0}="{1}"\'.format(varName, eg.event.payload[0])\n#exec(\'eg.globals.{0}="{1}"\'.format(varName, eg.event.payload[0]))\n\ndevice = eg.event.payload[0].split(\':\')[0]\ngpio = eg.event.payload[0].split(\':\')[1]\nstate = eg.event.payload[1]\n\neg.plugins.HTTPRelay.sendGETRequest(u\'http\', u\'192.168.1.\' + device, 80, u\'/control?cmd=GPIO,\' + gpio + \',\' + state, True)\n\n#tmp = \'eg.globals._{0}._{1}="{2}"\'.format(device, gpio, state)\n#print tmp\n#eg.globals._210_12="1"\n#eg.globals._210_12=state\nexec(\'eg.globals._{0}_{1}="{2}"\'.format(device, gpio, state))')
+                </Action>
+            </Macro>
+        </Folder>
+        <Folder Name="Zigbee" Expanded="True">
+            <Folder Name="LUMI-Osten">
+                <Macro Name="Save LUMI Lux/LuxMax">
+                    <Event Name="MQTT.zigbee2mqtt/LUMI-Osten" />
+                    <Action Name="Store Lumi_Lux">
+                        EventGhost.PythonScript(u'import json\n\nprint eg.event.payload\n\npayloadJson = json.loads(eg.event.payload)\neg.globals.lumi_lux_osten = payloadJson["illuminance_lux"]\n\nif int(eg.globals.lumi_lux_osten) &gt; int(eg.globals.lumi_luxMax_osten):\n    eg.globals.lumi_luxMax_osten = eg.globals.lumi_lux_osten\n    eg.globals.lumi_luxMaxTS_osten = payloadJson["last_seen"]')
+                    </Action>
+                </Macro>
+                <Macro Name="Save Lumi threshold fuer automatik">
+                    <Event Name="MQTT.zigbee2mqtt/LUMI-Osten" />
+                    <Action Name="Store Lumi_Lux w. threshold">
+                        EventGhost.PythonScript(u'import json\n\nprint eg.event.payload\n\npayloadJson = json.loads(eg.event.payload)\nlumi_lux = payloadJson["illuminance_lux"]\n#lumi_lux = 1234\n\n#print eg.globals.lumi_lux_threshold\n#print json.dumps(eg.globals.lumi_lux_threshold)\n\n# payloadJson = json.loads(eg.event.payload)\n# print payloadJson\n# print payloadJson["illuminance_lux"]\n# lumi_lux = payloadJson["illuminance_lux"]\n\n# eg.globals.lumi_lux_threshold = "{\\"0_1k\\":0, \\"1k_2k\\":0, \\"2k_xk\\":0}"\nlumi_lux_thresholdJson = json.loads(json.dumps(eg.globals.lumi_lux_osten_threshold))\n#lumi_lux_thresholdJson = json.loads(eg.globals.lumi_lux_threshold)\n\n# print lumi_lux_thresholdJson["0_1k"]\n\nif lumi_lux &lt; 20000:\n    lumi_lux_thresholdJson["dark"] = int(lumi_lux_thresholdJson["dark"]) + 1\n    lumi_lux_thresholdJson["medium"] = 0\n    lumi_lux_thresholdJson["bright"] = 0\nelif lumi_lux &lt; 30000:\n    lumi_lux_thresholdJson["dark"] = 0\n    lumi_lux_thresholdJson["medium"] = int(lumi_lux_thresholdJson["medium"]) + 1\n    lumi_lux_thresholdJson["bright"] = 0\nelse:\n    lumi_lux_thresholdJson["dark"] = 0\n    lumi_lux_thresholdJson["medium"] = 0\n    lumi_lux_thresholdJson["bright"] = int(lumi_lux_thresholdJson["bright"]) + 1\n        \nif int(lumi_lux_thresholdJson["dark"]) == 15:\n    eg.TriggerEvent(prefix="LUMI-Osten", suffix="Dark")\nelif int(lumi_lux_thresholdJson["medium"]) == 5:\n    eg.TriggerEvent(prefix="LUMI-Osten", suffix="Medium")\nelif int(lumi_lux_thresholdJson["bright"]) == 3:\n    eg.TriggerEvent(prefix="LUMI-Osten", suffix="Bright")\n    \n#print json.dumps(lumi_lux_thresholdJson)\neg.globals.lumi_lux_osten_threshold = lumi_lux_thresholdJson')
+                    </Action>
+                    <Action Enabled="False">
+                        EventGhost.PythonScript(u'#print json.dumps(eg.globals.lumi_lux_osten_threshold)\nprint eg.globals.lumi_lux_osten_threshold')
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'print eg.globals.lumi_lux_osten_threshold')
+                    </Action>
+                </Macro>
+                <Macro Name="Reset LUMI LuxMax">
+                    <Event Name="RS.Reset_LUMI_LuxMax_Osten[0:0]" />
+                    <Action Name="Reset Lumi_LuxMax">
+                        EventGhost.PythonScript(u'eg.globals.lumi_luxMax_osten = 0\neg.globals.lumi_luxMaxTS_osten = ""')
+                    </Action>
+                </Macro>
+                <Folder Name="Rollo-Terasse" id="798">
+                    <Folder Name="aufmachen/zumachen" id="799" Enabled="False">
+                        <Macro Name="Terasse aufmachen bei Dunkelheit">
+                            <Event Name="LUMI-Osten.Dark" />
+                            <Action>
+                                HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'LEVEL', u'1', True)
+                            </Action>
+                        </Macro>
+                        <Macro Name="Terasse zumachen bei Helligkeit">
+                            <Event Name="LUMI-Osten.Bright" />
+                            <Action>
+                                HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'LEVEL', u'0.5', True)
+                            </Action>
+                        </Macro>
+                    </Folder>
+                    <Folder Name="En/Disble Abends Morgens" id="806" Enabled="False">
+                        <Macro Name="Disable: Abends">
+                            <Event Name="RS.LUMI-Osten[20:0]" />
+                            <Action>
+                                EventGhost.DisableItem(XmlIdLink(799))
+                            </Action>
+                            <Action>
+                                EventGhost.PythonCommand(u'eg.globals.lumi_osten_rollo=False')
+                            </Action>
+                        </Macro>
+                        <Macro Name="Enable: Morgens">
+                            <Event Name="RS.LUMI-Osten[6:0]" />
+                            <Action>
+                                EventGhost.EnableItem(XmlIdLink(799))
+                            </Action>
+                            <Action>
+                                EventGhost.PythonCommand(u'eg.globals.lumi_osten_rollo=True')
+                            </Action>
+                        </Macro>
+                    </Folder>
+                    <Macro Name="Disable: Terasse aufmachen/zumachen">
+                        <Event Name="HTTP.lumi_osten_rollo:0" />
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(799))
+                        </Action>
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(806))
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.lumi_osten_rollo=False')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Enable: Terasse aufmachen/zumachen">
+                        <Event Name="HTTP.lumi_osten_rollo:1" />
+                        <Action Name="set lumi_lux_osten">
+                            EventGhost.PythonScript(u'eg.globals.lumi_lux_osten = 0\neg.globals.lumi_lux_osten_threshold = {u\'dark\': 0, u\'medium\': 0, u\'bright\': 0}\neg.globals.lumi_luxMax_osten = 0\neg.globals.lumi_luxMaxTS_osten = ""')
+                        </Action>
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(799))
+                        </Action>
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(806))
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.lumi_osten_rollo=True')
+                        </Action>
+                    </Macro>
+                </Folder>
+            </Folder>
+            <Folder Name="LUMI-Sueden">
+                <Macro Name="Save LUMI Lux/LuxMax">
+                    <Event Name="MQTT.zigbee2mqtt/LUMI-Sueden" />
+                    <Action Name="Store Lumi_Lux">
+                        EventGhost.PythonScript(u'import json\n\nprint eg.event.payload\n\npayloadJson = json.loads(eg.event.payload)\neg.globals.lumi_lux_sueden = payloadJson["illuminance_lux"]\n\nif int(eg.globals.lumi_lux_sueden) &gt; int(eg.globals.lumi_luxMax_sueden):\n    eg.globals.lumi_luxMax_sueden = eg.globals.lumi_lux_sueden\n    eg.globals.lumi_luxMaxTS_sueden = payloadJson["last_seen"]')
+                    </Action>
+                </Macro>
+                <Macro Name="Save Lumi threshold fuer automatik">
+                    <Event Name="MQTT.zigbee2mqtt/LUMI-Sueden" />
+                    <Action Name="Store Lumi_Lux w. threshold">
+                        EventGhost.PythonScript(u'import json\n\nprint eg.event.payload\n\npayloadJson = json.loads(eg.event.payload)\nlumi_lux = payloadJson["illuminance_lux"]\n\nlumi_lux_thresholdJson = json.loads(json.dumps(eg.globals.lumi_lux_sueden_threshold))\n\nif lumi_lux &lt; 7500:\n    lumi_lux_thresholdJson["dark"] = int(lumi_lux_thresholdJson["dark"]) + 1\n    lumi_lux_thresholdJson["medium"] = 0\n    lumi_lux_thresholdJson["bright"] = 0\nelif lumi_lux &lt; 20000:\n    lumi_lux_thresholdJson["dark"] = 0\n    lumi_lux_thresholdJson["medium"] = int(lumi_lux_thresholdJson["medium"]) + 1\n    lumi_lux_thresholdJson["bright"] = 0\nelse:\n    lumi_lux_thresholdJson["dark"] = 0\n    lumi_lux_thresholdJson["medium"] = 0\n    lumi_lux_thresholdJson["bright"] = int(lumi_lux_thresholdJson["bright"]) + 1\n        \nif int(lumi_lux_thresholdJson["dark"]) == 15:\n    eg.TriggerEvent(prefix="LUMI-Sueden", suffix="Dark")\nelif int(lumi_lux_thresholdJson["medium"]) == 5:\n    eg.TriggerEvent(prefix="LUMI-Sueden", suffix="Medium")\nelif int(lumi_lux_thresholdJson["bright"]) == 3:\n    eg.TriggerEvent(prefix="LUMI-Sueden", suffix="Bright")\n    \n#print json.dumps(lumi_lux_thresholdJson)\neg.globals.lumi_lux_sueden_threshold = lumi_lux_thresholdJson')
+                    </Action>
+                    <Action>
+                        EventGhost.PythonCommand(u'print eg.globals.lumi_lux_sueden_threshold')
+                    </Action>
+                </Macro>
+                <Macro Name="Reset LUMI LuxMax">
+                    <Event Name="RS.Reset_LUMI_LuxMax_Sueden[0:0]" />
+                    <Action Name="Reset Lumi_LuxMax">
+                        EventGhost.PythonScript(u'eg.globals.lumi_luxMax_sueden = 0\neg.globals.lumi_luxMaxTS_sueden = ""')
+                    </Action>
+                </Macro>
+                <Folder Name="Rollo-Essen" id="837" Expanded="True">
+                    <Folder Name="aufmachen/zumachen" id="838" Enabled="False" Expanded="True">
+                        <Macro Name="Essen aufmachen bei Dunkelheit">
+                            <Event Name="LUMI-Sueden.Dark" />
+                            <Action>
+                                HMXMLAPI.setDataPointXMLRPC(u'LEQ1028098:1', u'LEVEL', u'1', True)
+                            </Action>
+                            <Action>
+                                HMXMLAPI.setDataPointXMLRPC(u'QEQ1054870:1', u'LEVEL', u'1', True)
+                            </Action>
+                        </Macro>
+                        <Macro Name="Essen zumachen bei Helligkeit">
+                            <Event Name="LUMI-Sueden.Bright" />
+                            <Action>
+                                HMXMLAPI.setDataPointXMLRPC(u'LEQ1028098:1', u'LEVEL', u'0.5', True)
+                            </Action>
+                            <Action>
+                                HMXMLAPI.setDataPointXMLRPC(u'QEQ1054870:1', u'LEVEL', u'0.3', True)
+                            </Action>
+                        </Macro>
+                    </Folder>
+                    <Folder Name="En/Disable Abends Morgens" id="847" Enabled="False">
+                        <Macro Name="Disable: Abends" Expanded="True">
+                            <Event Name="RS.LUMI-Sueden[20:0]" />
+                            <Action>
+                                EventGhost.DisableItem(XmlIdLink(838))
+                            </Action>
+                            <Action>
+                                EventGhost.PythonCommand(u'eg.globals.lumi_sueden_rollo=False')
+                            </Action>
+                        </Macro>
+                        <Macro Name="Enable: Morgens">
+                            <Event Name="RS.LUMI-Sueden[6:0]" />
+                            <Action>
+                                EventGhost.EnableItem(XmlIdLink(838))
+                            </Action>
+                            <Action>
+                                EventGhost.PythonCommand(u'eg.globals.lumi_sueden_rollo=True')
+                            </Action>
+                        </Macro>
+                    </Folder>
+                    <Macro Name="Disable: Rollo-Essen aufmachen/zumachen">
+                        <Event Name="HTTP.lumi_sueden_rollo:0" />
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(838))
+                        </Action>
+                        <Action>
+                            EventGhost.DisableItem(XmlIdLink(847))
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.lumi_sueden_rollo=False')
+                        </Action>
+                    </Macro>
+                    <Macro Name="Enable: Rollo-Essen aufmachen/zumachen">
+                        <Event Name="HTTP.lumi_sueden_rollo:1" />
+                        <Action Name="set lumi_lux_sueden">
+                            EventGhost.PythonScript(u'eg.globals.lumi_lux_sueden = 0\neg.globals.lumi_lux_sueden_threshold = {u\'dark\': 0, u\'medium\': 0, u\'bright\': 0}\neg.globals.lumi_luxMax_sueden = 0\neg.globals.lumi_luxMaxTS_sueden = ""')
+                        </Action>
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(838))
+                        </Action>
+                        <Action>
+                            EventGhost.EnableItem(XmlIdLink(847))
+                        </Action>
+                        <Action>
+                            EventGhost.PythonCommand(u'eg.globals.lumi_sueden_rollo=True')
+                        </Action>
+                    </Macro>
+                </Folder>
+            </Folder>
+            <Folder Name="Pir01">
+                <Macro Name="Re-Trigger bei ON" Expanded="True">
+                    <Event Name="MQTT.zigbee2mqtt/Pir01" />
+                    <Action Name="Re-Trigger with Status">
+                        EventGhost.PythonScript(u'import json\n\nprint eg.event.payload\n\npayloadJson = json.loads(eg.event.payload)\noccupancy = payloadJson["occupancy"]\n\nif occupancy == True:\n    print "ReTrigger with On"\n    eg.TriggerEvent(prefix="MQTT", suffix="zigbee2mqtt/Pir01.On")')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Climate01">
+                <Macro Name="Store" Expanded="True">
+                    <Event Name="MQTT.zigbee2mqtt/Climate01" />
+                    <Action Name="store climate01">
+                        EventGhost.PythonScript(u'import json\n\n#print eg.event.payload\n\npayloadJson = json.loads(eg.event.payload)\neg.globals.climate01_humidity = payloadJson["humidity"]\neg.globals.climate01_temperature = payloadJson["temperature"]\n\nprint "eg.globals.climate01_humidity {0}".format(eg.globals.climate01_humidity)\nprint "eg.globals.climate01_temperature {0}".format(eg.globals.climate01_temperature)')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Taster">
+                <Macro Name="OG-Alles-Aus_Vitrine-Ein" Enabled="False">
+                    <Event Name="MQTT.zigbee2mqtt/TasterAmbient.double" />
+                    <Action>
+                        EventGhost.NewJumpIf(XmlIdLink(72), 2, True)
+                    </Action>
+                    <Action Enabled="False">
+                        HMXMLAPI.turnOnOrOffXMLRPC()
+                    </Action>
+                    <Action>
+                        HMXMLAPI.setValueXMLRPC(u'KEQ0926487:2', u'1')
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Terrassentuer">
+                <Macro Name="Store">
+                    <Event Name="MQTT.zigbee2mqtt/Terrassentuer" />
+                    <Action Name="store terrassentuer">
+                        EventGhost.PythonScript(u'import json\n\n#print eg.event.payload\n\npayloadJson = json.loads(eg.event.payload)\neg.globals.terrassentuer_contact = payloadJson["contact"]\n\nprint "eg.globals.terrassentuer_contact {0}".format(eg.globals.terrassentuer_contact)')
+                    </Action>
+                </Macro>
+                <Folder Name="set Terrassentuer Rollo INHIBIT" Enabled="False">
+                    <Macro Name="CLOSE">
+                        <Event Name="MQTT.zigbee2mqtt/Terrassentuer.CLOSE" />
+                        <Action>
+                            HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'INHIBIT', u'0', False)
+                        </Action>
+                    </Macro>
+                    <Macro Name="OPEN" Expanded="True">
+                        <Event Name="MQTT.zigbee2mqtt/Terrassentuer.OPEN" />
+                        <Action>
+                            HMXMLAPI.setDataPointXMLRPC(u'MEQ0733239:1', u'INHIBIT', u'1', False)
+                        </Action>
+                    </Macro>
+                </Folder>
+            </Folder>
+            <Folder Name="Relay" Expanded="True">
+                <Macro Name="Zigbee HTTP Relay">
+                    <Event Name="HTTP.Zigbee" />
+                    <Action>
+                        EventGhost.PythonScript(u'device = eg.event.payload[0]\nstate = eg.event.payload[1]\n\neg.globals.mqtt_state_on = "{\\"state\\":\\"ON\\"}"\neg.globals.mqtt_state_off = "{\\"state\\":\\"OFF\\"}"\n\nif (state == \'ON\'):\n    eg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/\' + device + \'/set\', u\'{eg.globals.mqtt_state_on}\', 0, False)\nelse:\n    eg.plugins.MQTTthreads.publishMQTT(u\'name\', u\'192.168.1.102\', 1883, u\'zigbee2mqtt/\' + device + \'/set\', u\'{eg.globals.mqtt_state_off}\', 0, False)\n\nexec(\'eg.globals._{0}="{1}"\'.format(device, state))')
+                    </Action>
+                </Macro>
+                <Macro Name="Zigbee Switch - Save State">
+                    <Event Name="MQTT.zigbee2mqtt/SwitchAmbient" />
+                    <Event Name="MQTT.zigbee2mqtt/Switch01" />
+                    <Event Name="MQTT.zigbee2mqtt/Switch02" />
+                    <Event Name="MQTT.zigbee2mqtt/Switch03" />
+                    <Event Name="MQTT.zigbee2mqtt/Switch05" />
+                    <Event Name="MQTT.zigbee2mqtt/Switch06" />
+                    <Event Name="MQTT.zigbee2mqtt/Plug01" />
+                    <Event Name="MQTT.zigbee2mqtt/Plug03" />
+                    <Action Name="Save State">
+                        EventGhost.PythonScript(u'import json\n\npayloadJson = json.loads(eg.event.payload)\n\nif "state" in payloadJson:\n    #eg.TriggerEvent(prefix="MQTT", suffix=eg.event.suffix + "." + payloadJson["state"])\n    exec(\'eg.globals._{0}="{1}"\'.format(eg.event.suffix.split("/")[1], payloadJson["state"]))\nelse:\n    print "no state to save"')
+                    </Action>
+                </Macro>
+                <Macro Name="Zigbee Switch - ReTrigger with State and Save">
+                    <Event Name="MQTT.zigbee2mqtt/Switch04" />
+                    <Action Name="ReTrigger Switch with State and Save">
+                        EventGhost.PythonScript(u'import json\n\npayloadJson = json.loads(eg.event.payload)\n\nif ("elapsed" in payloadJson) and ("state" in payloadJson):\n    eg.TriggerEvent(prefix="MQTT", suffix=eg.event.suffix + "." + payloadJson["state"])\n    exec(\'eg.globals._{0}="{1}"\'.format(eg.event.suffix.split("/")[1], payloadJson["state"]))\nelse:\n    print "no retrigger"')
+                    </Action>
+                </Macro>
+                <Macro Name="Zigbee Taster - Retrigger with Action">
+                    <Event Name="MQTT.zigbee2mqtt/Taster01" />
+                    <Event Name="MQTT.zigbee2mqtt/Taster02" />
+                    <Event Name="MQTT.zigbee2mqtt/Taster03" />
+                    <Action Name="ReTrigger Taster with Action">
+                        EventGhost.PythonScript(u'import json\n\npayloadJson = json.loads(eg.event.payload)\nif "action" in payloadJson and payloadJson["action"] != None and payloadJson["action"] != "":\n    eg.TriggerEvent(prefix="MQTT", suffix=eg.event.suffix + "." + payloadJson["action"])\nelse:\n    print "no action -&gt; no retrigger"')
+                    </Action>
+                </Macro>
+                <Macro Name="Zigbee Contact - Retrigger with State and Save">
+                    <Event Name="MQTT.zigbee2mqtt/Terrassentuer" />
+                    <Action Name="ReTrigger Contact with State and Save">
+                        EventGhost.PythonScript(u'import json\n\npayloadJson = json.loads(eg.event.payload)\nif "contact" in payloadJson:\n    if (payloadJson["contact"] == True):\n        eg.TriggerEvent(prefix="MQTT", suffix=eg.event.suffix + ".CLOSE")\n        exec(\'eg.globals._{0}="{1}"\'.format(eg.event.suffix.split("/")[1], "CLOSE"))\n    else:\n        eg.TriggerEvent(prefix="MQTT", suffix=eg.event.suffix + ".OPEN")\n        exec(\'eg.globals._{0}="{1}"\'.format(eg.event.suffix.split("/")[1], "OPEN"))\nelse:\n    print "no action -&gt; no retrigger"')
+                    </Action>
+                </Macro>
+            </Folder>
+        </Folder>
+    </Folder>
+</EventGhost>

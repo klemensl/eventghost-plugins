@@ -29,10 +29,10 @@ from threading import Thread, Event
 # a Netatmo app in your Netatmo account. All you have to do is to give it a name (whatever) and you will be
 # returned a client_id and secret that your app has to supply to access netatmo servers.
 
-_CLIENT_ID     = ""   # Your client ID from Netatmo app registration at http://dev.netatmo.com/dev/listapps
-_CLIENT_SECRET = ""   # Your client app secret   '     '
-_USERNAME      = ""   # Your netatmo account username
-_PASSWORD      = ""   # Your netatmo account password
+_CLIENT_ID     = "55a78b6f495a88c28403cd2c"   # Your client ID from Netatmo app registration at http://dev.netatmo.com/dev/listapps
+_CLIENT_SECRET = "RYogfbnKUz4tlIm5bTTEmYWSqn"   # Your client app secret   '     '
+_USERNAME      = "klemensl@gmail.com"   # Your netatmo account username
+_PASSWORD      = "Klemensl123"   # Your netatmo account password
 
 #########################################################################
 
@@ -56,7 +56,7 @@ eg.RegisterPlugin(
 )
 
 class Threshold():
-
+    
     def __init__(self, name, id, datatype, lowerTH, lowerTHName, upperTH, upperTHName, stationName, isModule):
         self.id = id
         self.name = name
@@ -67,7 +67,7 @@ class Threshold():
         self.upperTHName = upperTHName
         self.stationName = stationName
         self.isModule = isModule
-
+        
         self.lastFiredEvent = ""
         self.lastFiredDate = None
         self.fireAgain = False
@@ -76,37 +76,37 @@ class SchedulerThread(Thread):
 
     def __init__(self, authorization, eventPrefix):
         print "Starting Thread"
-
+		
         Thread.__init__(self, name="TheThread")
         self.finished = Event()
         self.authorization = authorization
         self.eventPrefix = eventPrefix
         self.abort = False
         self.thresholdList = []
-
+        
     def run(self):
         print "Got {0} Threshold configured!".format(len(self.thresholdList))
         while (self.abort == False):
             print "In loop, waiting 5s"
             self.finished.wait(5)
-
+            
             if self.abort:
                 break
-
+            
             devList = DeviceList(self.authorization)
-
+            
             for threshold in self.thresholdList:
                 moduleOrStation = devList.moduleById(threshold.id)
                 if moduleOrStation == None:
                     moduleOrStation = devList.stationById(threshold.id)
-
+                
                 currentValue = moduleOrStation['dashboard_data'][threshold.datatype]
                 print "currentValue: {0}".format(currentValue)
                 if currentValue < threshold.lowerTH:
                     fireEvent = threshold.lowerTHName
                 elif currentValue > threshold.upperTH:
                     fireEvent = threshold.upperTHName
-
+                    
                 if fireEvent == None:
                     print "threshold OK, no event fired!"
                 else:
@@ -117,12 +117,12 @@ class SchedulerThread(Thread):
                     else:
                         print "Event already fired, won't fire again..."
 
-
+        
     def AbortScheduler(self):
         self.abort = True
         print "Thread stopped"
         self.finished.set()
-
+        
 
 
 class ClientAuth:
@@ -141,18 +141,21 @@ class ClientAuth:
                 "password" : password,
                 "scope" : "read_station"
                 }
-        resp = postRequest(_AUTH_REQ, postParams)
-        print resp
+        # resp = postRequest(_AUTH_REQ, postParams)
+        # print resp
+        print "AUTH IST FIX AUF AUTH TOKEN GESETZT!!"
         self._clientId = clientId
         self._clientSecret = clientSecret
-        self._accessToken = resp['access_token']
-        self.refreshToken = resp['refresh_token']
-        self._scope = resp['scope']
-        self.expiration = int(resp['expire_in'] + time.time())
+        self._accessToken = "55a78b51495a880e7e03cda7|8b8dd126a60e8726039dfb419e64030d" #resp['access_token']
+        self.refreshToken = "55a78b51495a880e7e03cda7|e6b62a17ccd763caabb7088a2d9e17b6" #resp['refresh_token']
+        self._scope = "read_station" #resp['scope']
+        # self.expiration = int(resp['expire_in'] + time.time())
+        self.expiration = int(30000 + time.time())
 
     @property
     def accessToken(self):
 
+        # AUSKOMMENTIERT, WEIL TOOKEEN FIX IST
         if self.expiration < time.time(): # Token should be renewed
 
             postParams = {
@@ -163,8 +166,8 @@ class ClientAuth:
                     }
             resp = postRequest(_AUTH_REQ, postParams)
 
-            self._accessToken = resp['access_token']
-            self.refreshToken = resp['refresh_token']
+            self._accessToken = "55a78b51495a880e7e03cda7|8b8dd126a60e8726039dfb419e64030d" #resp['access_token']
+            self.refreshToken = "55a78b51495a880e7e03cda7|e6b62a17ccd763caabb7088a2d9e17b6" #resp['refresh_token']
             self.expiration = int(resp['expire_in'] + time.time())
 
         return self._accessToken
@@ -378,18 +381,18 @@ def getStationMinMaxTH(station=None, module=None):
         result.extend(devList.MinMaxTH(station, mname))
     return result
 
-
+    
 class Netatmo(eg.PluginBase):
     def __init__(self):
         self.started = False
         self.schedulerThread = None
-
+        
         self.authorization = None;
         self.user = None;
         self.devList = None;
-
+        
         self.AddAction(getValue)
-
+    
     def __start__(self, username, password, clientId, clientSecret, eventPrefix, refreshRate):
         self.username = username
         self.password = password
@@ -398,30 +401,34 @@ class Netatmo(eg.PluginBase):
         self.eventPrefix = eventPrefix
         self.refreshRate = refreshRate
         print "Netatmo: listener started"
-
+        
         self.authorization = ClientAuth(_CLIENT_ID, _CLIENT_SECRET, _USERNAME, _PASSWORD)
         self.user = User(self.authorization)
         self.devList = DeviceList(self.authorization)
         print "Netatmo: authorized and devices loaded"
-
-
-    def Configure(self,
+			
+    
+    def Configure(self, 
+        #username="klemensl@gmail.com",
         username=_USERNAME,
+        #password="Klemensl123",
         password=_PASSWORD,
+        #clientId="55a78b6f495a88c28403cd2c",
         clientId=_CLIENT_ID,
+        #clientSecret="RYogfbnKUz4tlIm5bTTEmYWSqn",
         clientSecret=_CLIENT_SECRET,
         eventPrefix="Netatmo",
         refreshRate=300):
 
         panel = eg.ConfigPanel(self)
-
+        
         usernameCtrl = panel.TextCtrl(username)
         passwordCtrl = panel.TextCtrl(password)
         clientIdCtrl = panel.TextCtrl(clientId)
         clientSecretCtrl = panel.TextCtrl(clientSecret)
         eventPrefixCtrl = panel.TextCtrl(eventPrefix)
         refreshRateCtrl = panel.SpinIntCtrl(refreshRate, 1, 600)
-
+        
         acv = wx.ALIGN_CENTER_VERTICAL
         authSizer = wx.GridBagSizer(5, 10)
         authSizer.Add(panel.StaticText("Username:"), (0,0))
@@ -436,12 +443,12 @@ class Netatmo(eg.PluginBase):
         authSizer.Add(eventPrefixCtrl, (2,1))
         authSizer.Add(panel.StaticText("Refreshrate (s):"), (3,0))
         authSizer.Add(refreshRateCtrl, (3,1))
-
-
+		
+        
         moduleListSizer = wx.GridBagSizer(2, 1)
         moduleListSizer.AddGrowableRow(0)
         moduleListSizer.AddGrowableCol(1)
-
+        
         moduleListCtrl = wx.ListCtrl(
             panel,
             -1,
@@ -452,24 +459,24 @@ class Netatmo(eg.PluginBase):
         moduleListCtrl.InsertColumn(2, "DataTypes")
         moduleListCtrl.InsertColumn(3, "Station/Module")
         moduleListCtrl.InsertColumn(4, "Station")
-
+		
         moduleListSizer.Add(moduleListCtrl, (0,0), (1,3), flag = wx.EXPAND)
-
+        
         #buttons
         testConnectionButton = wx.Button(panel, -1, "Test Connection")
         moduleListSizer.Add(testConnectionButton, (1,0))
-
+        
         startThreadButton = wx.Button(panel, -1, "Start Thread")
         moduleListSizer.Add(startThreadButton, (1,1), flag=wx.ALIGN_RIGHT)
-
+        
         stopThreadButton = wx.Button(panel, -1, "Stop Thread")
         moduleListSizer.Add(stopThreadButton, (1,2), flag=wx.ALIGN_LEFT)
-
-
+        
+        
         thresholdListSizer = wx.GridBagSizer(2, 1)
         thresholdListSizer.AddGrowableRow(0)
         thresholdListSizer.AddGrowableCol(1)
-
+        
         thresholdListCtrl = wx.ListCtrl(
             panel,
             -1,
@@ -484,20 +491,20 @@ class Netatmo(eg.PluginBase):
         thresholdListCtrl.InsertColumn(6, "UTH Event")
         thresholdListCtrl.InsertColumn(7, "Station/Module")
         thresholdListCtrl.InsertColumn(8, "Station")
-
+		
         thresholdListSizer.Add(thresholdListCtrl, (0,0), (1,2), flag = wx.EXPAND)
-
+        
         removeThresholdButton = wx.Button(panel, -1, "Remove")
         thresholdListSizer.Add(removeThresholdButton, (1,0))
-
+        
         def RemoveThreshold(event):
             selected = thresholdListCtrl.GetFirstSelected()
             if selected >= 0:
                 thresholdListCtrl.DeleteItem(selected)
-
+            
         removeThresholdButton.Bind(wx.EVT_BUTTON, RemoveThreshold)
         #removeThresholdButton.Disable()
-
+            
         def AddThreshold(event):
             moduleOrStation = self.devList.moduleById(moduleIDCtrl_1.GetValue())
             if moduleOrStation == None:
@@ -505,9 +512,9 @@ class Netatmo(eg.PluginBase):
                 stationName = moduleOrStation['station_name']
             else:
                 stationName = self.devList.stations[moduleOrStation['main_device']]['station_name']
-
+            
             print "module or station? {0}".format(moduleOrStation)
-
+            
             thresholdListCtrl.InsertStringItem(0, moduleOrStation['module_name'])
             thresholdListCtrl.SetStringItem(0, 1, moduleIDCtrl_1.GetValue())
             thresholdListCtrl.SetStringItem(0, 2, moduleDataTypeCtrl_1.GetValue())
@@ -516,20 +523,20 @@ class Netatmo(eg.PluginBase):
             thresholdListCtrl.SetStringItem(0, 5, str(moduleUpperTHCtrl_1.GetValue()))
             thresholdListCtrl.SetStringItem(0, 6, str(moduleUpperTHEvent_1.GetValue()))
             thresholdListCtrl.SetStringItem(0, 8, stationName)
-
+            
             startThreadButton.Enable()
-
-
+            
+        
         moduleIDCtrl_1 = wx.ComboBox(panel, -1, value="", choices=[''], style=wx.CB_DROPDOWN)
         moduleDataTypeCtrl_1 = wx.ComboBox(panel, -1, value="Temperature", choices=['Temperature', 'CO2', 'Humidity', 'Noise', 'Pressure', 'Rain'], style=wx.CB_DROPDOWN)
         moduleLowerTHCtrl_1 = panel.SpinIntCtrl(value=20, min=-10000, max=10000)
         moduleUpperTHCtrl_1 = panel.SpinIntCtrl(value=25, min=-10000, max=10000)
         moduleLowerTHEvent_1 = panel.TextCtrl()
         moduleUpperTHEvent_1 = panel.TextCtrl()
-
+        
         addThresholdButton = wx.Button(panel, -1, "Add")
         addThresholdButton.Bind(wx.EVT_BUTTON, AddThreshold)
-
+        
         addThresholdSizer = wx.GridBagSizer(4, 8)
         addThresholdSizer.Add(panel.StaticText("Module ID:"), (1,0))
         addThresholdSizer.Add(moduleIDCtrl_1, (1,1))
@@ -544,16 +551,16 @@ class Netatmo(eg.PluginBase):
         addThresholdSizer.Add(panel.StaticText("Upper TH Event:"), (3,2))
         addThresholdSizer.Add(moduleUpperTHEvent_1, (3,3))
         addThresholdSizer.Add(addThresholdButton, (4,0))
-
+        
         def RetrieveModules (event):
             moduleListCtrl.DeleteAllItems()
-
+            
             self.authorization = ClientAuth(clientIdCtrl.GetValue(), clientSecretCtrl.GetValue(), usernameCtrl.GetValue(), passwordCtrl.GetValue())
             self.user = User(self.authorization)
             self.devList = DeviceList(self.authorization)
-
+			
             moduleIDCtrl_1.Clear()
-
+            
             row = 0
             for stationID, station in self.devList.stations.iteritems():
                 moduleIDCtrl_1.Append(stationID)
@@ -563,7 +570,7 @@ class Netatmo(eg.PluginBase):
                 moduleListCtrl.SetStringItem(row, 3, "Station")
                 moduleListCtrl.SetStringItem(row, 4, station['station_name'])
                 row += 1
-
+            
             for moduleID, module in self.devList.modules.iteritems():
                 moduleIDCtrl_1.Append(moduleID)
                 moduleListCtrl.InsertStringItem(row, module['module_name'])
@@ -572,35 +579,35 @@ class Netatmo(eg.PluginBase):
                 moduleListCtrl.SetStringItem(row, 3, "Module")
                 moduleListCtrl.SetStringItem(row, 4, self.devList.stations[module['main_device']]['station_name'])
                 row += 1
-
+                
         testConnectionButton.Bind(wx.EVT_BUTTON, RetrieveModules)
-
+    
         def StartScheduler(event):
             self.schedulerThread = SchedulerThread(self.authorization, eventPrefixCtrl.GetValue())
-
+            
             for row in range(thresholdListCtrl.GetItemCount()):
                 item = self.schedulerThread.thresholdList.append(
-                    Threshold(thresholdListCtrl.GetItem(itemId=row, col=0).GetText(),
-                    thresholdListCtrl.GetItem(itemId=row, col=1).GetText(),
-                    thresholdListCtrl.GetItem(itemId=row, col=2).GetText(),
-                    int(thresholdListCtrl.GetItem(itemId=row, col=3).GetText()),
-                    thresholdListCtrl.GetItem(itemId=row, col=4).GetText(),
-                    int(thresholdListCtrl.GetItem(itemId=row, col=5).GetText()),
-                    thresholdListCtrl.GetItem(itemId=row, col=6).GetText(),
-                    thresholdListCtrl.GetItem(itemId=row, col=8).GetText(),
+                    Threshold(thresholdListCtrl.GetItem(itemId=row, col=0).GetText(), 
+                    thresholdListCtrl.GetItem(itemId=row, col=1).GetText(), 
+                    thresholdListCtrl.GetItem(itemId=row, col=2).GetText(), 
+                    int(thresholdListCtrl.GetItem(itemId=row, col=3).GetText()), 
+                    thresholdListCtrl.GetItem(itemId=row, col=4).GetText(), 
+                    int(thresholdListCtrl.GetItem(itemId=row, col=5).GetText()), 
+                    thresholdListCtrl.GetItem(itemId=row, col=6).GetText(), 
+                    thresholdListCtrl.GetItem(itemId=row, col=8).GetText(), 
                     True))
-
+            
             self.schedulerThread.start()
             self.started = True
             startThreadButton.Disable()
             stopThreadButton.Enable()
             addThresholdButton.Disable()
             removeThresholdButton.Disable()
-
+        
         startThreadButton.Bind(wx.EVT_BUTTON, StartScheduler)
         startThreadButton.Disable()
 
-
+        
         def AbortScheduler(event):
             if self.started == True:
                 self.schedulerThread.AbortScheduler()
@@ -609,18 +616,18 @@ class Netatmo(eg.PluginBase):
             stopThreadButton.Disable()
             addThresholdButton.Enable()
             removeThresholdButton.Enable()
-
+        
         stopThreadButton.Bind(wx.EVT_BUTTON, AbortScheduler)
         stopThreadButton.Disable()
-
-
+        
+        
         panel.sizer.Add(authSizer, 1, flag = wx.EXPAND)
         panel.sizer.Add(panel.StaticText("Available Modules"))
         panel.sizer.Add(moduleListSizer, 1, flag = wx.EXPAND)
         panel.sizer.Add(panel.StaticText("Defined Threshholds"))
         panel.sizer.Add(thresholdListSizer, 1, flag = wx.EXPAND)
         panel.sizer.Add(addThresholdSizer, 1, flag = wx.EXPAND)
-
+        
         if self.schedulerThread <> None:
             if self.started == True:
                 startThreadButton.Disable()
@@ -628,10 +635,10 @@ class Netatmo(eg.PluginBase):
             else:
                 startThreadButton.Enable()
                 stopThreadButton.Disable()
-
+                
             for threshold in self.schedulerThread.thresholdList:
                 print "adding threshold: {0}".format(threshold.name)
-
+                
                 thresholdListCtrl.InsertStringItem(0, threshold.name)
                 thresholdListCtrl.SetStringItem(0, 1, threshold.id)
                 thresholdListCtrl.SetStringItem(0, 2, threshold.datatype)
@@ -640,7 +647,7 @@ class Netatmo(eg.PluginBase):
                 thresholdListCtrl.SetStringItem(0, 5, str(threshold.upperTH))
                 thresholdListCtrl.SetStringItem(0, 6, threshold.upperTHName)
                 thresholdListCtrl.SetStringItem(0, 8, threshold.stationName)
-
+        
         while panel.Affirmed():
             panel.SetResult(
                 usernameCtrl.GetValue(),
@@ -661,21 +668,21 @@ class Netatmo(eg.PluginBase):
         if self.started == True:
             self.schedulerThread.AbortScheduler()
         self.started = False
-
-
+            
+            
 class getValue(eg.ActionBase):
     def __call__(self, moduleID, data_type):
         devList = DeviceList(self.plugin.authorization)
-
+        
         moduleOrStation = devList.moduleById(moduleID)
         if moduleOrStation == None:
             moduleOrStation = devList.stationById(moduleID)
-
+        
         print "Got '{2}' of module '{1}' ({0})".format(moduleID, moduleOrStation['module_name'], moduleOrStation['dashboard_data'][data_type])
         return moduleOrStation['dashboard_data'][data_type]
-
+        
     def GetLabel(self, moduleID, data_type):
-        return "Get '{1}' of module with the ID {0}".format(moduleID, data_type)
+        return "Get '{1}' of module with the ID {0}".format(moduleID, data_type) 
 
     def Configure(self, moduleID="", data_type=""):
         panel = eg.ConfigPanel(self)
@@ -688,7 +695,7 @@ class getValue(eg.ActionBase):
                 moduleIDCtrl.GetValue(),
                 data_typeCtrl.GetValue()
             )
-
+    
 #class testConnection(eg.ActionBase):
 #    def __call__(self):
 #        authorization = ClientAuth(self.plugin.clientId, self.plugin.clientSecret, self.plugin.username, self.plugin.password)
