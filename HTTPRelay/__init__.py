@@ -173,7 +173,7 @@ class sendPOSTPUTRequestWithBody(eg.ActionBase):
             panel.StaticText("Body:"),
             bodyCtrl,
             panel.StaticText("SSL:"),
-            useSSL,
+            useSSLCtrl,
         ])
         while panel.Affirmed():
             panel.SetResult(
