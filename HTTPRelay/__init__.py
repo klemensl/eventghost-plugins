@@ -114,7 +114,7 @@ class sendGETRequest(eg.ActionBase):
             panel.StaticText("Async:"),
             doAsyncCtrl,
             panel.StaticText("SSL:"),
-            useSSL,
+            useSSLCtrl,
         ])
         while panel.Affirmed():
             panel.SetResult(
