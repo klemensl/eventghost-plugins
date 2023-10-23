@@ -27,9 +27,9 @@ class HTTPRelay(eg.PluginBase):
         while panel.Affirmed():
             panel.SetResult()
 
-    def SendGETRequest(self, protocol, host, port, request, https=False):
+    def SendGETRequest(self, protocol, host, port, request, useSSL=False):
         print "sending request to: {0}:{1}{2}".format(host, port, request)
-        if https:
+        if useSSL:
             conn = httplib.HTTPSConnection(host, port)
         else:
             conn = httplib.HTTPConnection(host, port)
@@ -53,19 +53,13 @@ class HTTPRelay(eg.PluginBase):
 
         return dataBody
     
-    def SendGETRequestAsync(self, protocol, host, port, request):
-        start_new_thread(self.SendGETRequest,(protocol, host, port, request,))
+    def SendGETRequestAsync(self, protocol, host, port, request, useSSL):
+        start_new_thread(self.SendGETRequest,(protocol, host, port, request, useSSL,))
         return ""
     
-    def SendPOSTRequest(self, protocol, host, port, request, body=None, headers=None):
-        return self.SendPOSTPUTRequest(self, protocol, host, port, "POST", request, body, headers)
-    
-    def SendPUTRequest(self, protocol, host, port, request, body=None, headers=None):
-        return self.SendPOSTPUTRequest(self, protocol, host, port, "POST", request, body, headers)
-    
-    def SendPOSTPUTRequest(self, protocol, host, port, request, method, body=None, headers=None, https=False):
+    def SendPOSTPUTRequest(self, protocol, host, port, request, method, body=None, headers=None, useSSL=False):
         print "sending request to: {0}:{1}{2}".format(host, port, request)
-        if https:
+        if useSSL:
             conn = httplib.HTTPSConnection(host, port)
         else:
             conn = httplib.HTTPConnection(host, port)
@@ -90,12 +84,12 @@ class HTTPRelay(eg.PluginBase):
         return dataBody
 
 class sendGETRequest(eg.ActionBase):
-    def __call__(self, protocol, host, port, request, doAsync):
+    def __call__(self, protocol, host, port, request, doAsync, useSSL):
         #request = request.encode('utf-8')
         if doAsync:
-            eg.globals.httprelayresponse = self.plugin.SendGETRequestAsync(protocol, host, port, request)
+            eg.globals.httprelayresponse = self.plugin.SendGETRequestAsync(protocol, host, port, request, useSSL)
         else:
-            eg.globals.httprelayresponse = self.plugin.SendGETRequest(protocol, host, port, request)
+            eg.globals.httprelayresponse = self.plugin.SendGETRequest(protocol, host, port, request, useSSL)
 
     def GetLabel(self, protocol, host, port, request, doAsync, useSSL):
         return "Send a GET (async: {4}, useSSL: {5}) request to: {0}://{1}:{2}{3}".format(protocol, host, port, request, doAsync, useSSL)
@@ -133,7 +127,7 @@ class sendGETRequest(eg.ActionBase):
             )
 
 class sendPOSTPUTRequestWithBody(eg.ActionBase):
-    def __call__(self, protocol, host, port, method, request, headers, body):
+    def __call__(self, protocol, host, port, method, request, headers, body, useSSL):
         #request = request.encode('utf-8')
         headerMap = {}
         headerList = headers.split(',')
@@ -142,7 +136,7 @@ class sendPOSTPUTRequestWithBody(eg.ActionBase):
 
         #headers = {"Content-type": "text/xml"}
         print headerMap
-        eg.globals.httprelayresponse = self.plugin.SendPOSTPUTRequest(protocol, host, port, method, request, body, headerMap)
+        eg.globals.httprelayresponse = self.plugin.SendPOSTPUTRequest(protocol, host, port, method, request, body, headerMap, useSSL)
 
     def GetLabel(self, protocol, host, port, method, request, headers, body, useSSL):
         return "Send a {3} (useSSL: {5}) request with body to: {0}://{1}:{2}{4}".format(protocol, host, port, method, request, useSSL)
