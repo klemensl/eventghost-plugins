@@ -17,7 +17,7 @@ class HTTPRelay(eg.PluginBase):
 
     def __init__(self):
         self.AddAction(sendGETRequest)
-        self.AddAction(sendPOSTRequestWithBody)
+        self.AddAction(sendPOSTPUTRequestWithBody)
 
     def __start__(self):
         print "HTTPRelay Plugin started"
