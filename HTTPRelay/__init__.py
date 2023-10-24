@@ -57,7 +57,7 @@ class HTTPRelay(eg.PluginBase):
         start_new_thread(self.SendGETRequest,(protocol, host, port, request, useSSL,))
         return ""
     
-    def SendPOSTPUTRequest(self, protocol, host, port, request, method, body=None, headers=None, useSSL=False):
+    def SendPOSTPUTRequest(self, protocol, host, port, method, request, body=None, headers=None, useSSL=False):
         print "sending request to: {0}:{1}{2}".format(host, port, request)
         if useSSL:
             conn = httplib.HTTPSConnection(host, port)
