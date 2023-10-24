@@ -1,2 +1,3 @@
 http://192.168.1.61:80/api/v1/settings
 [{"moduleid":"devices:local","settings":[{"id":"Battery:ManualCharge","value":"1"}]}]
+Authorization:Session 2510adc7ebb85260e6643160918379b82512e5a01c1f5dfbae567e89fb48a9f6
